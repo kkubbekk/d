@@ -1,0 +1,74 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/jakub/ble_test/build/bootloader/esp-idf/esptool_py && /home/jakub/.espressif/python_env/idf5.1_py3.14_env/bin/python /home/jakub/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/jakub/ble_test/build/bootloader/bootloader.bin
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:4,
+                 from /home/jakub/ble_test/main/src/motor.cpp:2:
+/home/jakub/esp/esp-idf/components/driver/deprecated/driver/timer.h:16:2: warning: #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h" [-Wcpp]
+   16 | #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h"
+      |  ^~~~~~~
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:7:
+/home/jakub/ble_test/main/inc/tmc.hpp: In member function 'void TMC::tmc_init()':
+/home/jakub/ble_test/main/inc/tmc.hpp:145:9: warning: missing initializer for member 'uart_config_t::rx_flow_ctrl_thresh' [-Wmissing-field-initializers]
+  145 |         };
+      |         ^
+/home/jakub/ble_test/main/inc/tmc.hpp:145:9: warning: missing initializer for member 'uart_config_t::source_clk' [-Wmissing-field-initializers]
+/home/jakub/ble_test/main/inc/tmc.hpp:137:19: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+  137 |         esp_err_t ret = ESP_FAIL;       // uart w half duplex do komunikacji z tmc2209
+      |                   ^~~
+/home/jakub/ble_test/main/src/motor.cpp: In member function 'void STEPPER_MOTOR::motor_thread()':
+/home/jakub/ble_test/main/src/motor.cpp:10:11: warning: unused variable 'angle_buf' [-Wunused-variable]
+   10 |     float angle_buf;
+      |           ^~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp: In member function 'void STEPPER_MOTOR::motor_isr_handler(void*)':
+/home/jakub/ble_test/main/src/motor.cpp:61:13: warning: '++' expression of 'volatile'-qualified type is deprecated [-Wvolatile]
+   61 |             total_steps++;
+      |             ^~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:67:13: warning: '--' expression of 'volatile'-qualified type is deprecated [-Wvolatile]
+   67 |             total_steps--;
+      |             ^~~~~~~~~~~
+[5/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:4,
+                 from /home/jakub/ble_test/main/src/main.cpp:4:
+/home/jakub/esp/esp-idf/components/driver/deprecated/driver/timer.h:16:2: warning: #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h" [-Wcpp]
+   16 | #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h"
+      |  ^~~~~~~
+In file included from /home/jakub/ble_test/main/src/main.cpp:2:
+/home/jakub/ble_test/main/inc/ble.hpp: In member function 'void BLE::ble_init()':
+/home/jakub/ble_test/main/inc/ble.hpp:135:24: warning: 'bool NimBLEService::start()' is deprecated: NimBLEService::start() has no effect. Services are started when the server is started. [-Wdeprecated-declarations]
+  135 |         pService->start();
+      |         ~~~~~~~~~~~~~~~^~
+In file included from /home/jakub/ble_test/components/esp-nimble-cpp/src/NimBLEDevice.h:292,
+                 from /home/jakub/ble_test/main/inc/ble.hpp:1:
+/home/jakub/ble_test/components/esp-nimble-cpp/src/NimBLEService.h:51:10: note: declared here
+   51 |     bool start() { return true; }
+      |          ^~~~~
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:7:
+/home/jakub/ble_test/main/inc/tmc.hpp: In member function 'void TMC::tmc_init()':
+/home/jakub/ble_test/main/inc/tmc.hpp:145:9: warning: missing initializer for member 'uart_config_t::rx_flow_ctrl_thresh' [-Wmissing-field-initializers]
+  145 |         };
+      |         ^
+/home/jakub/ble_test/main/inc/tmc.hpp:145:9: warning: missing initializer for member 'uart_config_t::source_clk' [-Wmissing-field-initializers]
+/home/jakub/ble_test/main/inc/tmc.hpp:137:19: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+  137 |         esp_err_t ret = ESP_FAIL;       // uart w half duplex do komunikacji z tmc2209
+      |                   ^~~
+/home/jakub/ble_test/main/src/main.cpp: In function 'void app_main()':
+/home/jakub/ble_test/main/src/main.cpp:19:13: warning: unused variable 'dane' [-Wunused-variable]
+   19 |     uint8_t dane = 3;
+      |             ^~~~
+/home/jakub/ble_test/main/src/main.cpp:37:17: warning: unused variable 'main_tag' [-Wunused-variable]
+   37 |     const char* main_tag = "MAIN";
+      |                 ^~~~~~~~
+[6/10] Linking C static library esp-idf/main/libmain.a
+[7/10] Generating ld/sections.ld
+[8/10] Linking CXX executable ble_test.elf
+[9/10] Generating binary image from built executable
+esptool.py v4.12.0
+Creating esp32 image...
+Merged 27 ELF sections
+Successfully created esp32 image.
+Generated /home/jakub/ble_test/build/ble_test.bin
+[10/10] cd /home/jakub/ble_test/build/esp-idf/esptool_py && /home/jakub/.espressif/python_env/idf5.1_py3.14_env/bin/python /home/jakub/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/jakub/ble_test/build/partition_table/partition-table.bin /home/jakub/ble_test/build/ble_test.bin
+ble_test.bin binary size 0xa1b90 bytes. Smallest app partition is 0x100000 bytes. 0x5e470 bytes (37%) free.

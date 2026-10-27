@@ -1,0 +1,255 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2026 22:13:29[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1b890h (112784) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=0002b8b8 vaddr=3ffbdb60 size=04760h ( 18272) load[0m
+[0;32mI (152) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=67258h (422488) map[0m
+[0;32mI (305) esp_image: segment 3: paddr=00097280 vaddr=3ffc22c0 size=00248h (   584) load[0m
+[0;32mI (306) esp_image: segment 4: paddr=000974d0 vaddr=40080000 size=1a68ch (108172) load[0m
+[0;32mI (369) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (369) boot: Disabling RNG early entropy source...[0m
+[0;32mI (381) cpu_start: Multicore app[0m
+[0;32mI (381) cpu_start: Pro cpu up.[0m
+[0;32mI (381) cpu_start: Starting app cpu, entry point is 0x4008157c[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (399) cpu_start: Pro cpu start user code[0m
+[0;32mI (399) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (399) cpu_start: Application information:[0m
+[0;32mI (404) cpu_start: Project name:     ble_test[0m
+[0;32mI (409) cpu_start: App version:      1[0m
+[0;32mI (413) cpu_start: Compile time:     Oct 14 2026 22:13:24[0m
+[0;32mI (419) cpu_start: ELF file SHA256:  d9085cf753ce5652...[0m
+[0;32mI (425) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (430) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (435) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (440) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (445) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (452) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (458) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (464) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (470) heap_init: At 3FFC5540 len 0001AAC0 (106 KiB): DRAM[0m
+[0;32mI (476) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (483) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (489) heap_init: At 4009A68C len 00005974 (22 KiB): IRAM[0m
+[0;32mI (497) spi_flash: detected chip: generic[0m
+[0;32mI (500) spi_flash: flash io: dio[0m
+[0;33mW (504) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (517) timer_group: legacy driver is deprecated, please migrate to `driver/gptimer.h`[0m
+[0;32mI (526) coexist: coex firmware version: b6d5e8c[0m
+[0;32mI (531) app_start: Starting scheduler on CPU0[0m
+[0;32[0;32mI (536) app_start: Starting scheduler on CPU1[0m
+mI (536) main_task: Started on CPU0[0m
+[0;32mI (546) main_task: Calling app_main()[0m
+[0;32mI (566) BTDM_INIT: BT controller compile version [ec4ac65][0m
+[0;32mI (566) BTDM_INIT: Bluetooth MAC: f4:65:0b:ea:8e:06[0m
+[0;32mI (566) phy_init: phy_version 4780,16b31a7,Sep 22 2023,20:42:16[0m
+[0;32mI (946) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (946) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (946) NimBLE: disc_mode=2[0m
+[0;32mI (956) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (956) NimBLE: 
+[0m
+[0;32mI (966) BLE_MODULE: ble init completed!
+[0m
+[0;32mI (966) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (976) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (986) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (996) gpio: GPIO[22]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:5 [0m
+[0;31mE (1006) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1006) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (1916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (1916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (2916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (2916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (3916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (3916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (4916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (4916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (5916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (5916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (6916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (6916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (7916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (7916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8616) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8716) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8716) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8816) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8816) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (8916) TMC: COS SIE ZJEBALO[0m
+[0;32mI (8916) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9016) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9016) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9116) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9116) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9216) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9216) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9316) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9316) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9416) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9416) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9516) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9516) MOTOR: WARTOSC SG : 0[0m
+[0;31mE (9616) TMC: COS SIE ZJEBALO[0m
+[0;32mI (9616) MOTOR: WARTOSC SG : 0[0m

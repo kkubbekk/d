@@ -1,0 +1,451 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/jakub/ble_test/build/bootloader/esp-idf/esptool_py && /home/jakub/.espressif/python_env/idf5.1_py3.14_env/bin/python /home/jakub/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/jakub/ble_test/build/bootloader/bootloader.bin
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj 
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ -DESP_PLATFORM -DIDF_VER=\"v5.1.2\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DUNITY_INCLUDE_CONFIG_H -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/jakub/ble_test/build/config -I/home/jakub/ble_test/main/inc -I/home/jakub/esp/esp-idf/components/newlib/platform_include -I/home/jakub/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/jakub/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/include -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/arch/xtensa/include -I/home/jakub/esp/esp-idf/components/esp_hw_support/include -I/home/jakub/esp/esp-idf/components/esp_hw_support/include/soc -I/home/jakub/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/jakub/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/jakub/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/jakub/esp/esp-idf/components/heap/include -I/home/jakub/esp/esp-idf/components/log/include -I/home/jakub/esp/esp-idf/components/soc/include -I/home/jakub/esp/esp-idf/components/soc/esp32 -I/home/jakub/esp/esp-idf/components/soc/esp32/include -I/home/jakub/esp/esp-idf/components/hal/esp32/include -I/home/jakub/esp/esp-idf/components/hal/include -I/home/jakub/esp/esp-idf/components/hal/platform_port/include -I/home/jakub/esp/esp-idf/components/esp_rom/include -I/home/jakub/esp/esp-idf/components/esp_rom/include/esp32 -I/home/jakub/esp/esp-idf/components/esp_rom/esp32 -I/home/jakub/esp/esp-idf/components/esp_common/include -I/home/jakub/esp/esp-idf/components/esp_system/include -I/home/jakub/esp/esp-idf/components/esp_system/port/soc -I/home/jakub/esp/esp-idf/components/esp_system/port/include/private -I/home/jakub/esp/esp-idf/components/xtensa/include -I/home/jakub/esp/esp-idf/components/xtensa/esp32/include -I/home/jakub/esp/esp-idf/components/lwip/include -I/home/jakub/esp/esp-idf/components/lwip/include/apps -I/home/jakub/esp/esp-idf/components/lwip/include/apps/sntp -I/home/jakub/esp/esp-idf/components/lwip/lwip/src/include -I/home/jakub/esp/esp-idf/components/lwip/port/include -I/home/jakub/esp/esp-idf/components/lwip/port/freertos/include -I/home/jakub/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/jakub/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/jakub/esp/esp-idf/components/esp_ringbuf/include -I/home/jakub/esp/esp-idf/components/efuse/include -I/home/jakub/esp/esp-idf/components/efuse/esp32/include -I/home/jakub/esp/esp-idf/components/driver/include -I/home/jakub/esp/esp-idf/components/driver/deprecated -I/home/jakub/esp/esp-idf/components/driver/analog_comparator/include -I/home/jakub/esp/esp-idf/components/driver/dac/include -I/home/jakub/esp/esp-idf/components/driver/gpio/include -I/home/jakub/esp/esp-idf/components/driver/gptimer/include -I/home/jakub/esp/esp-idf/components/driver/i2c/include -I/home/jakub/esp/esp-idf/components/driver/i2s/include -I/home/jakub/esp/esp-idf/components/driver/ledc/include -I/home/jakub/esp/esp-idf/components/driver/mcpwm/include -I/home/jakub/esp/esp-idf/components/driver/parlio/include -I/home/jakub/esp/esp-idf/components/driver/pcnt/include -I/home/jakub/esp/esp-idf/components/driver/rmt/include -I/home/jakub/esp/esp-idf/components/driver/sdio_slave/include -I/home/jakub/esp/esp-idf/components/driver/sdmmc/include -I/home/jakub/esp/esp-idf/components/driver/sigma_delta/include -I/home/jakub/esp/esp-idf/components/driver/spi/include -I/home/jakub/esp/esp-idf/components/driver/temperature_sensor/include -I/home/jakub/esp/esp-idf/components/driver/touch_sensor/include -I/home/jakub/esp/esp-idf/components/driver/twai/include -I/home/jakub/esp/esp-idf/components/driver/uart/include -I/home/jakub/esp/esp-idf/components/driver/usb_serial_jtag/include -I/home/jakub/esp/esp-idf/components/driver/touch_sensor/esp32/include -I/home/jakub/esp/esp-idf/components/esp_pm/include -I/home/jakub/esp/esp-idf/components/mbedtls/port/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/jakub/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/jakub/esp/esp-idf/components/esp_app_format/include -I/home/jakub/esp/esp-idf/components/bootloader_support/include -I/home/jakub/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/jakub/esp/esp-idf/components/esp_partition/include -I/home/jakub/esp/esp-idf/components/app_update/include -I/home/jakub/esp/esp-idf/components/esp_mm/include -I/home/jakub/esp/esp-idf/components/spi_flash/include -I/home/jakub/esp/esp-idf/components/pthread/include -I/home/jakub/esp/esp-idf/components/esp_timer/include -I/home/jakub/esp/esp-idf/components/app_trace/include -I/home/jakub/esp/esp-idf/components/esp_event/include -I/home/jakub/esp/esp-idf/components/nvs_flash/include -I/home/jakub/esp/esp-idf/components/esp_phy/include -I/home/jakub/esp/esp-idf/components/esp_phy/esp32/include -I/home/jakub/esp/esp-idf/components/vfs/include -I/home/jakub/esp/esp-idf/components/esp_netif/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/port/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/jakub/esp/esp-idf/components/esp_coex/include -I/home/jakub/esp/esp-idf/components/esp_wifi/include -I/home/jakub/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/jakub/esp/esp-idf/components/bt/include/esp32/include -I/home/jakub/esp/esp-idf/components/bt/common/osi/include -I/home/jakub/esp/esp-idf/components/bt/common/api/include/api -I/home/jakub/esp/esp-idf/components/bt/common/btc/profile/esp/blufi/include -I/home/jakub/esp/esp-idf/components/bt/common/btc/profile/esp/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ans/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/bas/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/dis/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/gap/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/gatt/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/hr/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/htp/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ias/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ipss/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/lls/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/prox/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/tps/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/util/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/store/ram/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/store/config/include -I/home/jakub/esp/esp-idf/components/bt/porting/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/port/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/transport/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/porting/npl/freertos/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/esp-hci/include -I/home/jakub/esp/esp-idf/components/unity/include -I/home/jakub/esp/esp-idf/components/unity/unity/src -I/home/jakub/esp/esp-idf/components/cmock/CMock/src -I/home/jakub/esp/esp-idf/components/console -I/home/jakub/esp/esp-idf/components/http_parser -I/home/jakub/esp/esp-idf/components/esp-tls -I/home/jakub/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/jakub/esp/esp-idf/components/esp_adc/include -I/home/jakub/esp/esp-idf/components/esp_adc/interface -I/home/jakub/esp/esp-idf/components/esp_adc/esp32/include -I/home/jakub/esp/esp-idf/components/esp_adc/deprecated/include -I/home/jakub/esp/esp-idf/components/esp_eth/include -I/home/jakub/esp/esp-idf/components/esp_gdbstub/include -I/home/jakub/esp/esp-idf/components/esp_hid/include -I/home/jakub/esp/esp-idf/components/tcp_transport/include -I/home/jakub/esp/esp-idf/components/esp_http_client/include -I/home/jakub/esp/esp-idf/components/esp_http_server/include -I/home/jakub/esp/esp-idf/components/esp_https_ota/include -I/home/jakub/esp/esp-idf/components/esp_psram/include -I/home/jakub/esp/esp-idf/components/esp_lcd/include -I/home/jakub/esp/esp-idf/components/esp_lcd/interface -I/home/jakub/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/jakub/esp/esp-idf/components/protocomm/include/common -I/home/jakub/esp/esp-idf/components/protocomm/include/security -I/home/jakub/esp/esp-idf/components/protocomm/include/transports -I/home/jakub/esp/esp-idf/components/esp_local_ctrl/include -I/home/jakub/esp/esp-idf/components/espcoredump/include -I/home/jakub/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/jakub/esp/esp-idf/components/wear_levelling/include -I/home/jakub/esp/esp-idf/components/sdmmc/include -I/home/jakub/esp/esp-idf/components/fatfs/diskio -I/home/jakub/esp/esp-idf/components/fatfs/vfs -I/home/jakub/esp/esp-idf/components/fatfs/src -I/home/jakub/esp/esp-idf/components/idf_test/include -I/home/jakub/esp/esp-idf/components/idf_test/include/esp32 -I/home/jakub/esp/esp-idf/components/ieee802154/include -I/home/jakub/esp/esp-idf/components/json/cJSON -I/home/jakub/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/jakub/esp/esp-idf/components/perfmon/include -I/home/jakub/esp/esp-idf/components/spiffs/include -I/home/jakub/esp/esp-idf/components/wifi_provisioning/include -I/home/jakub/ble_test/components/esp-nimble-cpp/src -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/jakub/ble_test=. -fmacro-prefix-map=/home/jakub/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu++2b -fno-exceptions -fno-rtti -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/src/motor.cpp.obj -c /home/jakub/ble_test/main/src/motor.cpp
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:4,
+                 from /home/jakub/ble_test/main/src/motor.cpp:2:
+/home/jakub/esp/esp-idf/components/driver/deprecated/driver/timer.h:16:2: warning: #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h" [-Wcpp]
+   16 | #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h"
+      |  ^~~~~~~
+In file included from /home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/cmath:42,
+                 from /home/jakub/ble_test/main/inc/stepper_motor.hpp:8:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/bits/cpp_type_traits.h:67:8: error: expected unqualified-id before string constant
+   67 | extern "C++" {
+      |        ^~~~~
+In file included from /home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/cmath:43:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/ext/type_traits.h:37:8: error: expected unqualified-id before string constant
+   37 | extern "C++" {
+      |        ^~~~~
+In file included from /home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/stdio.h:29,
+                 from /home/jakub/esp/esp-idf/components/esp_common/include/esp_err.h:10,
+                 from /home/jakub/esp/esp-idf/components/driver/gpio/include/driver/gpio.h:11,
+                 from /home/jakub/ble_test/main/inc/stepper_motor.hpp:3:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/math.h:10:1: error: expected unqualified-id before string constant
+   10 | _BEGIN_STD_C
+      | ^~~~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/cmath:77:8: error: expected unqualified-id before string constant
+   77 | extern "C++"
+      |        ^~~~~
+/home/jakub/ble_test/main/inc/stepper_motor.hpp:45:10: error: field 'tmc_2209' has incomplete type 'TMC'
+   45 |      TMC tmc_2209;
+      |          ^~~~~~~~
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:7:
+/home/jakub/ble_test/main/inc/tmc.hpp:16:7: note: forward declaration of 'class TMC'
+   16 | class TMC
+      |       ^~~
+/home/jakub/ble_test/main/src/motor.cpp:5:1: error: storage class specified for 'cmndQueue'
+    5 | extern  QueueHandle_t cmndQueue;
+      | ^~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:8:7: error: cannot define member function 'TMC::STEPPER_MOTOR::motor_thread' within 'TMC'
+    8 |  void STEPPER_MOTOR::motor_thread()
+      |       ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:42:6: error: cannot define member function 'TMC::STEPPER_MOTOR::motor_isr_handler' within 'TMC'
+   42 | void STEPPER_MOTOR:: motor_isr_handler(void *arg)
+      |      ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:77:17: error: cannot define member function 'TMC::STEPPER_MOTOR::tim_isr_trampoline' within 'TMC'
+   77 |  void IRAM_ATTR STEPPER_MOTOR::tim_isr_trampoline(void *arg)
+      |                 ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:96:13: error: cannot define member function 'TMC::STEPPER_MOTOR::motor_init' within 'TMC'
+   96 |        void STEPPER_MOTOR::motor_init()
+      |             ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:129:11: error: cannot define member function 'TMC::STEPPER_MOTOR::start_motor' within 'TMC'
+  129 |      void STEPPER_MOTOR::start_motor()
+      |           ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:146:11: error: cannot define member function 'TMC::STEPPER_MOTOR::get_current_angle' within 'TMC'
+  146 |     float STEPPER_MOTOR::get_current_angle()
+      |           ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:151:12: error: cannot define member function 'TMC::STEPPER_MOTOR::get_normalized_angle' within 'TMC'
+  151 |      float STEPPER_MOTOR::get_normalized_angle()
+      |            ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:164:10: error: cannot define member function 'TMC::STEPPER_MOTOR::start_rtos_thread' within 'TMC'
+  164 |     void STEPPER_MOTOR::start_rtos_thread(uint32_t stack_size, uint8_t priority)
+      |          ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:176:10: error: cannot define member function 'TMC::STEPPER_MOTOR::move_to_angle' within 'TMC'
+  176 |     void STEPPER_MOTOR::move_to_angle(float angle_target)
+      |          ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:190:10: error: cannot define member function 'TMC::STEPPER_MOTOR::stop_motor' within 'TMC'
+  190 |     void STEPPER_MOTOR::stop_motor()
+      |          ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:199:11: error: cannot define member function 'TMC::STEPPER_MOTOR::set_microsteps' within 'TMC'
+  199 |      void STEPPER_MOTOR::set_microsteps(uint16_t ms)
+      |           ^~~~~~~~~~~~~
+/home/jakub/ble_test/main/src/motor.cpp:214:6: error: expected '}' at end of input
+  214 |     }
+      |      ^
+/home/jakub/ble_test/main/inc/tmc.hpp:17:1: note: to match this '{'
+   17 | {
+      | ^
+/home/jakub/ble_test/main/inc/tmc.hpp: In member function 'void TMC::tmc_init()':
+/home/jakub/ble_test/main/inc/tmc.hpp:141:9: warning: missing initializer for member 'uart_config_t::rx_flow_ctrl_thresh' [-Wmissing-field-initializers]
+  141 |         };
+      |         ^
+/home/jakub/ble_test/main/inc/tmc.hpp:141:9: warning: missing initializer for member 'uart_config_t::source_clk' [-Wmissing-field-initializers]
+/home/jakub/ble_test/main/inc/tmc.hpp:163:67: error: 'ESP_INTR_FLAG_DEFAULT' was not declared in this scope; did you mean 'ESP_INTR_FLAG_LEVEL1'?
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                                                   ^~~~~~~~~~~~~~~~~~~~~
+      |                                                                   ESP_INTR_FLAG_LEVEL1
+/home/jakub/ble_test/main/inc/tmc.hpp:163:91: error: 'stall_guard_handle' was not declared in this scope
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                                                                           ^~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:163:33: error: invalid use of non-static member function 'void TMC::stall_gurad_isr_trampoline(void*)'
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:96:21: note: declared here
+   96 |      void IRAM_ATTR stall_gurad_isr_trampoline(void *arg)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:167:5: error: a function-definition is not allowed here before '{' token
+  167 |     {
+      |     ^
+/home/jakub/ble_test/main/inc/tmc.hpp:216:5: error: a function-definition is not allowed here before '{' token
+  216 |     {
+      |     ^
+/home/jakub/ble_test/main/inc/tmc.hpp:223:7: error: a function-definition is not allowed here before '{' token
+  223 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:229:7: error: a function-definition is not allowed here before '{' token
+  229 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  233 |       std::uint16_t read_sg_result_val()
+      |                                       ^~
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: note: remove parentheses to default-initialize a variable
+  233 |       std::uint16_t read_sg_result_val()
+      |                                       ^~
+      |                                       --
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: note: or replace parentheses with braces to value-initialize a variable
+/home/jakub/ble_test/main/inc/tmc.hpp:234:7: error: a function-definition is not allowed here before '{' token
+  234 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  240 |       std::uint16_t read_stallguard_status()
+      |                                           ^~
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: note: remove parentheses to default-initialize a variable
+  240 |       std::uint16_t read_stallguard_status()
+      |                                           ^~
+      |                                           --
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: note: or replace parentheses with braces to value-initialize a variable
+/home/jakub/ble_test/main/inc/tmc.hpp:241:7: error: a function-definition is not allowed here before '{' token
+  241 |       {
+      |       ^
+/home/jakub/ble_test/main/src/motor.cpp: At global scope:
+/home/jakub/ble_test/main/src/motor.cpp:214:6: error: expected unqualified-id at end of input
+  214 |     }
+      |      ^
+[5/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj 
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ -DESP_PLATFORM -DIDF_VER=\"v5.1.2\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DUNITY_INCLUDE_CONFIG_H -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/jakub/ble_test/build/config -I/home/jakub/ble_test/main/inc -I/home/jakub/esp/esp-idf/components/newlib/platform_include -I/home/jakub/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/jakub/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/include -I/home/jakub/esp/esp-idf/components/freertos/esp_additions/arch/xtensa/include -I/home/jakub/esp/esp-idf/components/esp_hw_support/include -I/home/jakub/esp/esp-idf/components/esp_hw_support/include/soc -I/home/jakub/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/jakub/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/jakub/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/jakub/esp/esp-idf/components/heap/include -I/home/jakub/esp/esp-idf/components/log/include -I/home/jakub/esp/esp-idf/components/soc/include -I/home/jakub/esp/esp-idf/components/soc/esp32 -I/home/jakub/esp/esp-idf/components/soc/esp32/include -I/home/jakub/esp/esp-idf/components/hal/esp32/include -I/home/jakub/esp/esp-idf/components/hal/include -I/home/jakub/esp/esp-idf/components/hal/platform_port/include -I/home/jakub/esp/esp-idf/components/esp_rom/include -I/home/jakub/esp/esp-idf/components/esp_rom/include/esp32 -I/home/jakub/esp/esp-idf/components/esp_rom/esp32 -I/home/jakub/esp/esp-idf/components/esp_common/include -I/home/jakub/esp/esp-idf/components/esp_system/include -I/home/jakub/esp/esp-idf/components/esp_system/port/soc -I/home/jakub/esp/esp-idf/components/esp_system/port/include/private -I/home/jakub/esp/esp-idf/components/xtensa/include -I/home/jakub/esp/esp-idf/components/xtensa/esp32/include -I/home/jakub/esp/esp-idf/components/lwip/include -I/home/jakub/esp/esp-idf/components/lwip/include/apps -I/home/jakub/esp/esp-idf/components/lwip/include/apps/sntp -I/home/jakub/esp/esp-idf/components/lwip/lwip/src/include -I/home/jakub/esp/esp-idf/components/lwip/port/include -I/home/jakub/esp/esp-idf/components/lwip/port/freertos/include -I/home/jakub/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/jakub/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/jakub/esp/esp-idf/components/esp_ringbuf/include -I/home/jakub/esp/esp-idf/components/efuse/include -I/home/jakub/esp/esp-idf/components/efuse/esp32/include -I/home/jakub/esp/esp-idf/components/driver/include -I/home/jakub/esp/esp-idf/components/driver/deprecated -I/home/jakub/esp/esp-idf/components/driver/analog_comparator/include -I/home/jakub/esp/esp-idf/components/driver/dac/include -I/home/jakub/esp/esp-idf/components/driver/gpio/include -I/home/jakub/esp/esp-idf/components/driver/gptimer/include -I/home/jakub/esp/esp-idf/components/driver/i2c/include -I/home/jakub/esp/esp-idf/components/driver/i2s/include -I/home/jakub/esp/esp-idf/components/driver/ledc/include -I/home/jakub/esp/esp-idf/components/driver/mcpwm/include -I/home/jakub/esp/esp-idf/components/driver/parlio/include -I/home/jakub/esp/esp-idf/components/driver/pcnt/include -I/home/jakub/esp/esp-idf/components/driver/rmt/include -I/home/jakub/esp/esp-idf/components/driver/sdio_slave/include -I/home/jakub/esp/esp-idf/components/driver/sdmmc/include -I/home/jakub/esp/esp-idf/components/driver/sigma_delta/include -I/home/jakub/esp/esp-idf/components/driver/spi/include -I/home/jakub/esp/esp-idf/components/driver/temperature_sensor/include -I/home/jakub/esp/esp-idf/components/driver/touch_sensor/include -I/home/jakub/esp/esp-idf/components/driver/twai/include -I/home/jakub/esp/esp-idf/components/driver/uart/include -I/home/jakub/esp/esp-idf/components/driver/usb_serial_jtag/include -I/home/jakub/esp/esp-idf/components/driver/touch_sensor/esp32/include -I/home/jakub/esp/esp-idf/components/esp_pm/include -I/home/jakub/esp/esp-idf/components/mbedtls/port/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/jakub/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/jakub/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/jakub/esp/esp-idf/components/esp_app_format/include -I/home/jakub/esp/esp-idf/components/bootloader_support/include -I/home/jakub/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/jakub/esp/esp-idf/components/esp_partition/include -I/home/jakub/esp/esp-idf/components/app_update/include -I/home/jakub/esp/esp-idf/components/esp_mm/include -I/home/jakub/esp/esp-idf/components/spi_flash/include -I/home/jakub/esp/esp-idf/components/pthread/include -I/home/jakub/esp/esp-idf/components/esp_timer/include -I/home/jakub/esp/esp-idf/components/app_trace/include -I/home/jakub/esp/esp-idf/components/esp_event/include -I/home/jakub/esp/esp-idf/components/nvs_flash/include -I/home/jakub/esp/esp-idf/components/esp_phy/include -I/home/jakub/esp/esp-idf/components/esp_phy/esp32/include -I/home/jakub/esp/esp-idf/components/vfs/include -I/home/jakub/esp/esp-idf/components/esp_netif/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/port/include -I/home/jakub/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/jakub/esp/esp-idf/components/esp_coex/include -I/home/jakub/esp/esp-idf/components/esp_wifi/include -I/home/jakub/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/jakub/esp/esp-idf/components/bt/include/esp32/include -I/home/jakub/esp/esp-idf/components/bt/common/osi/include -I/home/jakub/esp/esp-idf/components/bt/common/api/include/api -I/home/jakub/esp/esp-idf/components/bt/common/btc/profile/esp/blufi/include -I/home/jakub/esp/esp-idf/components/bt/common/btc/profile/esp/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ans/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/bas/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/dis/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/gap/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/gatt/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/hr/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/htp/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ias/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/ipss/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/lls/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/prox/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/services/tps/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/util/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/store/ram/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/host/store/config/include -I/home/jakub/esp/esp-idf/components/bt/porting/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/port/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/transport/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/porting/npl/freertos/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/nimble/nimble/include -I/home/jakub/esp/esp-idf/components/bt/host/nimble/esp-hci/include -I/home/jakub/esp/esp-idf/components/unity/include -I/home/jakub/esp/esp-idf/components/unity/unity/src -I/home/jakub/esp/esp-idf/components/cmock/CMock/src -I/home/jakub/esp/esp-idf/components/console -I/home/jakub/esp/esp-idf/components/http_parser -I/home/jakub/esp/esp-idf/components/esp-tls -I/home/jakub/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/jakub/esp/esp-idf/components/esp_adc/include -I/home/jakub/esp/esp-idf/components/esp_adc/interface -I/home/jakub/esp/esp-idf/components/esp_adc/esp32/include -I/home/jakub/esp/esp-idf/components/esp_adc/deprecated/include -I/home/jakub/esp/esp-idf/components/esp_eth/include -I/home/jakub/esp/esp-idf/components/esp_gdbstub/include -I/home/jakub/esp/esp-idf/components/esp_hid/include -I/home/jakub/esp/esp-idf/components/tcp_transport/include -I/home/jakub/esp/esp-idf/components/esp_http_client/include -I/home/jakub/esp/esp-idf/components/esp_http_server/include -I/home/jakub/esp/esp-idf/components/esp_https_ota/include -I/home/jakub/esp/esp-idf/components/esp_psram/include -I/home/jakub/esp/esp-idf/components/esp_lcd/include -I/home/jakub/esp/esp-idf/components/esp_lcd/interface -I/home/jakub/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/jakub/esp/esp-idf/components/protocomm/include/common -I/home/jakub/esp/esp-idf/components/protocomm/include/security -I/home/jakub/esp/esp-idf/components/protocomm/include/transports -I/home/jakub/esp/esp-idf/components/esp_local_ctrl/include -I/home/jakub/esp/esp-idf/components/espcoredump/include -I/home/jakub/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/jakub/esp/esp-idf/components/wear_levelling/include -I/home/jakub/esp/esp-idf/components/sdmmc/include -I/home/jakub/esp/esp-idf/components/fatfs/diskio -I/home/jakub/esp/esp-idf/components/fatfs/vfs -I/home/jakub/esp/esp-idf/components/fatfs/src -I/home/jakub/esp/esp-idf/components/idf_test/include -I/home/jakub/esp/esp-idf/components/idf_test/include/esp32 -I/home/jakub/esp/esp-idf/components/ieee802154/include -I/home/jakub/esp/esp-idf/components/json/cJSON -I/home/jakub/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/jakub/esp/esp-idf/components/perfmon/include -I/home/jakub/esp/esp-idf/components/spiffs/include -I/home/jakub/esp/esp-idf/components/wifi_provisioning/include -I/home/jakub/ble_test/components/esp-nimble-cpp/src -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/jakub/ble_test=. -fmacro-prefix-map=/home/jakub/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu++2b -fno-exceptions -fno-rtti -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/src/main.cpp.obj -c /home/jakub/ble_test/main/src/main.cpp
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:4,
+                 from /home/jakub/ble_test/main/src/main.cpp:4:
+/home/jakub/esp/esp-idf/components/driver/deprecated/driver/timer.h:16:2: warning: #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h" [-Wcpp]
+   16 | #warning "legacy timer group driver is deprecated, please migrate to driver/gptimer.h"
+      |  ^~~~~~~
+In file included from /home/jakub/ble_test/main/src/main.cpp:2:
+/home/jakub/ble_test/main/inc/ble.hpp: In member function 'void BLE::ble_init()':
+/home/jakub/ble_test/main/inc/ble.hpp:135:24: warning: 'bool NimBLEService::start()' is deprecated: NimBLEService::start() has no effect. Services are started when the server is started. [-Wdeprecated-declarations]
+  135 |         pService->start();
+      |         ~~~~~~~~~~~~~~~^~
+In file included from /home/jakub/ble_test/components/esp-nimble-cpp/src/NimBLEDevice.h:292,
+                 from /home/jakub/ble_test/main/inc/ble.hpp:1:
+/home/jakub/ble_test/components/esp-nimble-cpp/src/NimBLEService.h:51:10: note: declared here
+   51 |     bool start() { return true; }
+      |          ^~~~~
+In file included from /home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/stdio.h:29,
+                 from /home/jakub/esp/esp-idf/components/esp_common/include/esp_err.h:10,
+                 from /home/jakub/esp/esp-idf/components/bt/include/esp32/include/esp_bt.h:12,
+                 from /home/jakub/ble_test/components/esp-nimble-cpp/src/NimBLEDevice.h:26:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/math.h: At global scope:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/sys-include/math.h:10:1: error: expected unqualified-id before string constant
+   10 | _BEGIN_STD_C
+      | ^~~~~~~~~~~~
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:8:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/cmath:77:8: error: expected unqualified-id before string constant
+   77 | extern "C++"
+      |        ^~~~~
+/home/jakub/ble_test/main/inc/stepper_motor.hpp:45:10: error: field 'tmc_2209' has incomplete type 'TMC'
+   45 |      TMC tmc_2209;
+      |          ^~~~~~~~
+In file included from /home/jakub/ble_test/main/inc/stepper_motor.hpp:7:
+/home/jakub/ble_test/main/inc/tmc.hpp:16:7: note: forward declaration of 'class TMC'
+   16 | class TMC
+      |       ^~~
+In file included from /home/jakub/ble_test/main/src/main.cpp:5:
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:38:12: error: using-declaration for non-member at class scope
+   38 | using std::abs;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:39:12: error: using-declaration for non-member at class scope
+   39 | using std::acos;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:40:12: error: using-declaration for non-member at class scope
+   40 | using std::asin;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:41:12: error: using-declaration for non-member at class scope
+   41 | using std::atan;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:42:12: error: using-declaration for non-member at class scope
+   42 | using std::atan2;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:43:12: error: using-declaration for non-member at class scope
+   43 | using std::cos;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:44:12: error: using-declaration for non-member at class scope
+   44 | using std::sin;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:45:12: error: using-declaration for non-member at class scope
+   45 | using std::tan;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:46:12: error: using-declaration for non-member at class scope
+   46 | using std::cosh;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:47:12: error: using-declaration for non-member at class scope
+   47 | using std::sinh;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:48:12: error: using-declaration for non-member at class scope
+   48 | using std::tanh;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:49:12: error: using-declaration for non-member at class scope
+   49 | using std::exp;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:50:12: error: using-declaration for non-member at class scope
+   50 | using std::frexp;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:51:12: error: using-declaration for non-member at class scope
+   51 | using std::ldexp;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:52:12: error: using-declaration for non-member at class scope
+   52 | using std::log;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:53:12: error: using-declaration for non-member at class scope
+   53 | using std::log10;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:54:12: error: using-declaration for non-member at class scope
+   54 | using std::modf;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:55:12: error: using-declaration for non-member at class scope
+   55 | using std::pow;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:56:12: error: using-declaration for non-member at class scope
+   56 | using std::sqrt;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:57:12: error: using-declaration for non-member at class scope
+   57 | using std::ceil;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:58:12: error: using-declaration for non-member at class scope
+   58 | using std::fabs;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:59:12: error: using-declaration for non-member at class scope
+   59 | using std::floor;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:60:12: error: using-declaration for non-member at class scope
+   60 | using std::fmod;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:63:12: error: using-declaration for non-member at class scope
+   63 | using std::fpclassify;
+      |            ^~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:64:12: error: using-declaration for non-member at class scope
+   64 | using std::isfinite;
+      |            ^~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:65:12: error: using-declaration for non-member at class scope
+   65 | using std::isinf;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:66:12: error: using-declaration for non-member at class scope
+   66 | using std::isnan;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:67:12: error: using-declaration for non-member at class scope
+   67 | using std::isnormal;
+      |            ^~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:68:12: error: using-declaration for non-member at class scope
+   68 | using std::signbit;
+      |            ^~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:69:12: error: using-declaration for non-member at class scope
+   69 | using std::isgreater;
+      |            ^~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:70:12: error: using-declaration for non-member at class scope
+   70 | using std::isgreaterequal;
+      |            ^~~~~~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:71:12: error: using-declaration for non-member at class scope
+   71 | using std::isless;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:72:12: error: using-declaration for non-member at class scope
+   72 | using std::islessequal;
+      |            ^~~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:73:12: error: using-declaration for non-member at class scope
+   73 | using std::islessgreater;
+      |            ^~~~~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:74:12: error: using-declaration for non-member at class scope
+   74 | using std::isunordered;
+      |            ^~~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:78:12: error: using-declaration for non-member at class scope
+   78 | using std::acosh;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:79:12: error: using-declaration for non-member at class scope
+   79 | using std::asinh;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:80:12: error: using-declaration for non-member at class scope
+   80 | using std::atanh;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:81:12: error: using-declaration for non-member at class scope
+   81 | using std::cbrt;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:82:12: error: using-declaration for non-member at class scope
+   82 | using std::copysign;
+      |            ^~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:83:12: error: using-declaration for non-member at class scope
+   83 | using std::erf;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:84:12: error: using-declaration for non-member at class scope
+   84 | using std::erfc;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:85:12: error: using-declaration for non-member at class scope
+   85 | using std::exp2;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:86:12: error: using-declaration for non-member at class scope
+   86 | using std::expm1;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:87:12: error: using-declaration for non-member at class scope
+   87 | using std::fdim;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:88:12: error: using-declaration for non-member at class scope
+   88 | using std::fma;
+      |            ^~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:89:12: error: using-declaration for non-member at class scope
+   89 | using std::fmax;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:90:12: error: using-declaration for non-member at class scope
+   90 | using std::fmin;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:91:12: error: using-declaration for non-member at class scope
+   91 | using std::hypot;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:92:12: error: using-declaration for non-member at class scope
+   92 | using std::ilogb;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:93:12: error: using-declaration for non-member at class scope
+   93 | using std::lgamma;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:94:12: error: using-declaration for non-member at class scope
+   94 | using std::llrint;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:95:12: error: using-declaration for non-member at class scope
+   95 | using std::llround;
+      |            ^~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:96:12: error: using-declaration for non-member at class scope
+   96 | using std::log1p;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:97:12: error: using-declaration for non-member at class scope
+   97 | using std::log2;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:98:12: error: using-declaration for non-member at class scope
+   98 | using std::logb;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:99:12: error: using-declaration for non-member at class scope
+   99 | using std::lrint;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:100:12: error: using-declaration for non-member at class scope
+  100 | using std::lround;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:101:12: error: using-declaration for non-member at class scope
+  101 | using std::nearbyint;
+      |            ^~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:102:12: error: using-declaration for non-member at class scope
+  102 | using std::nextafter;
+      |            ^~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:103:12: error: using-declaration for non-member at class scope
+  103 | using std::nexttoward;
+      |            ^~~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:104:12: error: using-declaration for non-member at class scope
+  104 | using std::remainder;
+      |            ^~~~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:105:12: error: using-declaration for non-member at class scope
+  105 | using std::remquo;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:106:12: error: using-declaration for non-member at class scope
+  106 | using std::rint;
+      |            ^~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:107:12: error: using-declaration for non-member at class scope
+  107 | using std::round;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:108:12: error: using-declaration for non-member at class scope
+  108 | using std::scalbln;
+      |            ^~~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:109:12: error: using-declaration for non-member at class scope
+  109 | using std::scalbn;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:110:12: error: using-declaration for non-member at class scope
+  110 | using std::tgamma;
+      |            ^~~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:111:12: error: using-declaration for non-member at class scope
+  111 | using std::trunc;
+      |            ^~~~~
+/home/jakub/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/12.2.0/math.h:183:12: error: using-declaration for non-member at class scope
+  183 | using std::lerp;
+      |            ^~~~
+/home/jakub/ble_test/main/src/main.cpp:9:8: error: expected unqualified-id before string constant
+    9 | extern "C" void app_main(void) {
+      |        ^~~
+/home/jakub/ble_test/main/src/main.cpp:44:6: error: expected '}' at end of input
+   44 |     }
+      |      ^
+/home/jakub/ble_test/main/inc/tmc.hpp:17:1: note: to match this '{'
+   17 | {
+      | ^
+/home/jakub/ble_test/main/inc/tmc.hpp: In member function 'void TMC::tmc_init()':
+/home/jakub/ble_test/main/inc/tmc.hpp:141:9: warning: missing initializer for member 'uart_config_t::rx_flow_ctrl_thresh' [-Wmissing-field-initializers]
+  141 |         };
+      |         ^
+/home/jakub/ble_test/main/inc/tmc.hpp:141:9: warning: missing initializer for member 'uart_config_t::source_clk' [-Wmissing-field-initializers]
+/home/jakub/ble_test/main/inc/tmc.hpp:163:67: error: 'ESP_INTR_FLAG_DEFAULT' was not declared in this scope; did you mean 'ESP_INTR_FLAG_LEVEL3'?
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                                                   ^~~~~~~~~~~~~~~~~~~~~
+      |                                                                   ESP_INTR_FLAG_LEVEL3
+/home/jakub/ble_test/main/inc/tmc.hpp:163:91: error: 'stall_guard_handle' was not declared in this scope
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                                                                           ^~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:163:33: error: invalid use of non-static member function 'void TMC::stall_gurad_isr_trampoline(void*)'
+  163 |         ret = gpio_isr_register(stall_gurad_isr_trampoline, NULL, ESP_INTR_FLAG_DEFAULT, &stall_guard_handle);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:96:21: note: declared here
+   96 |      void IRAM_ATTR stall_gurad_isr_trampoline(void *arg)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jakub/ble_test/main/inc/tmc.hpp:167:5: error: a function-definition is not allowed here before '{' token
+  167 |     {
+      |     ^
+/home/jakub/ble_test/main/inc/tmc.hpp:216:5: error: a function-definition is not allowed here before '{' token
+  216 |     {
+      |     ^
+/home/jakub/ble_test/main/inc/tmc.hpp:223:7: error: a function-definition is not allowed here before '{' token
+  223 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:229:7: error: a function-definition is not allowed here before '{' token
+  229 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  233 |       std::uint16_t read_sg_result_val()
+      |                                       ^~
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: note: remove parentheses to default-initialize a variable
+  233 |       std::uint16_t read_sg_result_val()
+      |                                       ^~
+      |                                       --
+/home/jakub/ble_test/main/inc/tmc.hpp:233:39: note: or replace parentheses with braces to value-initialize a variable
+/home/jakub/ble_test/main/inc/tmc.hpp:234:7: error: a function-definition is not allowed here before '{' token
+  234 |       {
+      |       ^
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  240 |       std::uint16_t read_stallguard_status()
+      |                                           ^~
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: note: remove parentheses to default-initialize a variable
+  240 |       std::uint16_t read_stallguard_status()
+      |                                           ^~
+      |                                           --
+/home/jakub/ble_test/main/inc/tmc.hpp:240:43: note: or replace parentheses with braces to value-initialize a variable
+/home/jakub/ble_test/main/inc/tmc.hpp:241:7: error: a function-definition is not allowed here before '{' token
+  241 |       {
+      |       ^
+/home/jakub/ble_test/main/src/main.cpp: At global scope:
+/home/jakub/ble_test/main/src/main.cpp:44:6: error: expected unqualified-id at end of input
+   44 |     }
+      |      ^
+ninja: build stopped: subcommand failed.

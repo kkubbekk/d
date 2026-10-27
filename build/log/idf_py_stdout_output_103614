@@ -1,0 +1,908 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 14 2026 22:13:29[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0af18h ( 44824) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001af40 vaddr=3ffbdb60 size=033d0h ( 13264) load[0m
+[0;32mI (126) esp_image: segment 2: paddr=0001e318 vaddr=40080000 size=01d00h (  7424) load[0m
+[0;32mI (129) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1ab40h (109376) map[0m
+[0;32mI (174) esp_image: segment 4: paddr=0003ab68 vaddr=40081d00 size=0b6d4h ( 46804) load[0m
+[0;32mI (201) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (201) boot: Disabling RNG early entropy source...[0m
+[0;32mI (212) cpu_start: Multicore app[0m
+[0;32mI (213) cpu_start: Pro cpu up.[0m
+[0;32mI (213) cpu_start: Starting app cpu, entry point is 0x40081230[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (231) cpu_start: Pro cpu start user code[0m
+[0;32mI (231) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (231) cpu_start: Application information:[0m
+[0;32mI (235) cpu_start: Project name:     ble_test[0m
+[0;32mI (240) cpu_start: App version:      1[0m
+[0;32mI (245) cpu_start: Compile time:     Oct 14 2026 22:13:24[0m
+[0;32mI (251) cpu_start: ELF file SHA256:  2909795aa4206e1a...[0m
+[0;32mI (257) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (262) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (267) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (271) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (276) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (284) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (289) heap_init: At 3FFC17E0 len 0001E820 (122 KiB): DRAM[0m
+[0;32mI (296) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (302) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (309) heap_init: At 4008D3D4 len 00012C2C (75 KiB): IRAM[0m
+[0;32mI (316) spi_flash: detected chip: generic[0m
+[0;32mI (319) spi_flash: flash io: dio[0m
+[0;33mW (323) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (337) coexist: coex firmware version: b6d5e8c[0m
+[0;32mI (342) app_start: Starting scheduler on CPU0[0m
+[0;32[0;32mI (347) app_start: Starting scheduler on CPU1[0m
+mI (347) main_task: Started on CPU0[0m
+[0;32mI (357) main_task: Calling app_main()[0m
+[0;32mI (357) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (367) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (377) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;31mE (437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x3F010000[0;31mE (2537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (2587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (2587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (4637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (4687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (4687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (6737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (6787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (6787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (8837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (8887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (8887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (10937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (10987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (10987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (13037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (13087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (13087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (15137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (15187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (15187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (17237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (17287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (17287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (19337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (19387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (19387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (21437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (21487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (21487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (23537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (23587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (23587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (25637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (25687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (25687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (27737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (27787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (27787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (29837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (29887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (29887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (31937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (31987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (31987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (34037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (34087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (34087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (36137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (36187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (36187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (38237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (38287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (38287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (40337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (40387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (40387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (42437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (42487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (42487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (44537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (44587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (44587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (46637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (46687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (46687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (48737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (48787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (48787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (50837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (50887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (50887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (52937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (52987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (52987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (55037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (55087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (55087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (57137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (57187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (57187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (59237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (59287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (59287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (81337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (81387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (81387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (83437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (83487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (83487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (85537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (85587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (85587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (87637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (87687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (87687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (89737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (89787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (89787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (91837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (91887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (91887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (93937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (93987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (93987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (96037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (96087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (96087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (98137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (98187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (98187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (100237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (100287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (100287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (102337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (102387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (102387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (104437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (104487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (104487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (106537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (106587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (106587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (108637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (108687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (108687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (110737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (110787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (110787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (112837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (112887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (112887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (114937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (114987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (114987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (117037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (117087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (117087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (119137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (119187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (119187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (121237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (121287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (121287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (143337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (143387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (143387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (145437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (145487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (145487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (147537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (147587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (147587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (149637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (149687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (149687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (151737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (151787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (151787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (153837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (153887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (153887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (155937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (155987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (155987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (158037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (158087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (158087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (160137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (160187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (160187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (162237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (162287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (162287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (164337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (164387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (164387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (166437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (166487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (166487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (168537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (168587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (168587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (170637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (170687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (170687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (172737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (172787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (172787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (174837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (174887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (174887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (176937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (176987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (176987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (179037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (179087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (179087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (181137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (181187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (181187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (183237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (183287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (183287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (205337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (205387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (205387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (207437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (207487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (207487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (209537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (209587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (209587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (211637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (211687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (211687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (213737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (213787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (213787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (215837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (215887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (215887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (217937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (217987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (217987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (220037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (220087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (220087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (222137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (222187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (222187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (224237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (224287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (224287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (226337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (226387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (226387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (228437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (228487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (228487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (230537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (230587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (230587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (232637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (232687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (232687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (234737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (234787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (234787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (236837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (236887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (236887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (238937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (238987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (238987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (241037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (241087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (241087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (243137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (243187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (243187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (245237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (245287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (245287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (267337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (267387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (267387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (269437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (269487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (269487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (271537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (271587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (271587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (273637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (273687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (273687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (275737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (275787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (275787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (277837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (277887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (277887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (279937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (279987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (279987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (282037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (282087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (282087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (284137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (284187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (284187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (286237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (286287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (286287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (288337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (288387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (288387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (290437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (290487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (290487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (292537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (292587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (292587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (294637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (294687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (294687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (296737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (296787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (296787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (298837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (298887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (298887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (300937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (300987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (300987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (303037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (303087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (303087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (305137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (305187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (305187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (307237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (307287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (307287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (329337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (329387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (329387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (331437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (331487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (331487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (333537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (333587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (333587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (335637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (335687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (335687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (337737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (337787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (337787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (339837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (339887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (339887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (341937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (341987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (341987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (344037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (344087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (344087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (346137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (346187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (346187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (348237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (348287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (348287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (350337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (350387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (350387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (352437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (352487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (352487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (354537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (354587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (354587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (356637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (356687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (356687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (358737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (358787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (358787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (360837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (360887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (360887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (362937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (362987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (362987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (365037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (365087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (365087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (367137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (367187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (367187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (369237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (369287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (369287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (391337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (391387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (391387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (393437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (393487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (393487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (395537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (395587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (395587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (397637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (397687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (397687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (399737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (399787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (399787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (401837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (401887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (401887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (403937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (403987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (403987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (406037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (406087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (406087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (408137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (408187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (408187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (410237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (410287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (410287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (412337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (412387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (412387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (414437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (414487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (414487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (416537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (416587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (416587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (418637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (418687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (418687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (420737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (420787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (420787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (422837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (422887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (422887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (424937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (424987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (424987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (427037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (427087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (427087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (429137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (429187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (429187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (431237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (431287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (431287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (453337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (453387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (453387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (455437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (455487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (455487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (457537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (457587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (457587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (459637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (459687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (459687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (461737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (461787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (461787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (463837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (463887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (463887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (465937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (465987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (465987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (468037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (468087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (468087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (470137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (470187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (470187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (472237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (472287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (472287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (474337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (474387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (474387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (476437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (476487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (476487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (478537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (478587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (478587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (480637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (480687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (480687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (482737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (482787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (482787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (484837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (484887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (484887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (486937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (486987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (486987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (489037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (489087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (489087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (491137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (491187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (491187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (493237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (493287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (493287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (515337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (515387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (515387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (517437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (517487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (517487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (519537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (519587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (519587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (521637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (521687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (521687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (523737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (523787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (523787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (525837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (525887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (525887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (527937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (527987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (527987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (530037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (530087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (530087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (532137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (532187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (532187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (534237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (534287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (534287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (536337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (536387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (536387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (538437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (538487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (538487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (540537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (540587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (540587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (542637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (542687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (542687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (544737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (544787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (544787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (546837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (546887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (546887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (548937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (548987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (548987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (551037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (551087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (551087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (553137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (553187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (553187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (555237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (555287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (555287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (577337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (577387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (577387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (579437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (579487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (579487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (581537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (581587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (581587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (583637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (583687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (583687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (585737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (585787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (585787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (587837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (587887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (587887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (589937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (589987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (589987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (592037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (592087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (592087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (594137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (594187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (594187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (596237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (596287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (596287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (598337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (598387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (598387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (600437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (600487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (600487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (602537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (602587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (602587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (604637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (604687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (604687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (606737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (606787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (606787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (608837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (608887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (608887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (610937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (610987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (610987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (613037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (613087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (613087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (615137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (615187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (615187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (617237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (617287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (617287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (639337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (639387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (639387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (641437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (641487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (641487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (643537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (643587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (643587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (645637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (645687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (645687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (647737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (647787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (647787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (649837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (649887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (649887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (651937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (651987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (651987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (654037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (654087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (654087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (656137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (656187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (656187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (658237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (658287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (658287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (660337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (660387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (660387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (662437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (662487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (662487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (664537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (664587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (664587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (666637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (666687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (666687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (668737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (668787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (668787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (670837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (670887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (670887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (672937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (672987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (672987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (675037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (675087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (675087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (677137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (677187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (677187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (679237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (679287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (679287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (701337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (701387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (701387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (703437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (703487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (703487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (705537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (705587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (705587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (707637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (707687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (707687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (709737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (709787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (709787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (711837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (711887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (711887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (713937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (713987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (713987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (716037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (716087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (716087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (718137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (718187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (718187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (720237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (720287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (720287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (722337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (722387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (722387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (724437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (724487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (724487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (726537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (726587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (726587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (728637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (728687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (728687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (730737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (730787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (730787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (732837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (732887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (732887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (734937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (734987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (734987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (737037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (737087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (737087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (739137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (739187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (739187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (741237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (741287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (741287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (763337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (763387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (763387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (765437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (765487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (765487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (767537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (767587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (767587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (769637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (769687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (769687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (771737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (771787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (771787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (773837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (773887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (773887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (775937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (775987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (775987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (778037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (778087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (778087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (780137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (780187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (780187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (782237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (782287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (782287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (784337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (784387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (784387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (786437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (786487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (786487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (788537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (788587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (788587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (790637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (790687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (790687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (792737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (792787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (792787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (794837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (794887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (794887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (796937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (796987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (796987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (799037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (799087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (799087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (801137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (801187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (801187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (803237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (803287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (803287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000ODPOWIEDZ: Odczytany rejestr IOIN: 0x00000000[0;31mE (825337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (825387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (825387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (827437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (827487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (827487) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (829537) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (829587) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (829587) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (831637) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (831687) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (831687) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (833737) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (833787) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (833787) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (835837) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (835887) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (835887) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (837937) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (837987) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (837987) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (840037) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (840087) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (840087) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (842137) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (842187) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (842187) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (844237) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (844287) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (844287) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (846337) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (846387) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (846387) TMC2209: COS SIE ZJEBALO[0m
+ODPOWIEDZ: Odczytany rejestr IOIN: 0x00BC3840[0;31mE (848437) TMC2209: ODEBRANO TYLKO 0/4 bajtow[0m
+[0;31mE (848487) TMC2209: Błąd echa! Odebrano tylko 0/4 bajtów. Sprawdź kable.[0m
+[0;31mE (848487) TMC2209: COS SIE ZJEBALO[0m
