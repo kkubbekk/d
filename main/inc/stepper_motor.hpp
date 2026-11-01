@@ -22,6 +22,14 @@ typedef enum {
     DECEL
 } ramp_state_t;
 
+enum class MotorState : uint8_t {
+    WAIT_FOR_HOME,
+    INITIALIZED,
+    IDLE,
+    TRACKING,
+    ERROR
+};
+
 
 //moptor parameters
 #define ISR_STARTING_COOLDOWN 1000
@@ -41,6 +49,8 @@ typedef enum {
 //pozniej wydziele klase tmc moze
 class STEPPER_MOTOR
 {
+    
+    MotorState state_motor{MotorState::WAIT_FOR_HOME};
     QueueHandle_t cmndQueue;
     volatile ramp_state_t ramp{STOP};
     portMUX_TYPE timer_mux = portMUX_INITIALIZER_UNLOCKED;
@@ -49,7 +59,7 @@ class STEPPER_MOTOR
     volatile std::int32_t target_steps{0};
     volatile bool dir_forward{true};
     volatile bool is_motor_stopped{true};
-   volatile bool step_state; 
+    volatile bool step_state; 
     volatile std::int32_t step_delay{0};    
     volatile std::int32_t min_delay{0};     
     volatile std::int32_t accel_count{0};   
@@ -65,7 +75,10 @@ class STEPPER_MOTOR
 
     static void IRAM_ATTR tim_isr_trampoline(void *arg);
 
-
+    void send_angle_command(float target_angle) {
+    xQueueOverwrite(cmndQueue, &target_angle);
+    }
+  
    
 
    
@@ -86,7 +99,6 @@ class STEPPER_MOTOR
     void start_motor();
 
      STEPPER_MOTOR() {
-        // Tworzymy kolejkę na 1 element (float) przy powołaniu obiektu do życia
         cmndQueue = xQueueCreate(1, sizeof(float));
     }
 
@@ -97,7 +109,10 @@ class STEPPER_MOTOR
     float get_normalized_angle();
 
    
-    
+      MotorState get_state()
+    {
+        return state_motor;
+    }
 
     void motor_thread();
 

@@ -37,7 +37,7 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
     gpio_set_level(MOTOR_STEP, 1);
     
 
-    __asm__ __volatile__("nop; nop; nop; nop; nop; nop;");
+    __asm__ __volatile__("nop; nop; nop; nop; nop; nop;"); // linijka z chata wydluzam impuls na high zeby tmc zalapalo
     
     if (dir_forward) total_steps++;
     else total_steps--;
@@ -100,11 +100,15 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
  void  STEPPER_MOTOR::event_handler(void* handler_args, esp_event_base_t base, int32_t id, void* event_data) {
     
         STEPPER_MOTOR* self = static_cast<STEPPER_MOTOR*>(handler_args);
-        
+            
         if (id == YOLO_CMND_EVENT) {
             float new_angle = *static_cast<float*>(event_data);
-            // Wrzucamy do prywatnej kolejki
+            // Wrzucamy kolejki
             xQueueOverwrite(self->cmndQueue, &new_angle); 
+        }
+        if( id == GPS_CMND_EVENT)
+        {
+            
         }
     }
 

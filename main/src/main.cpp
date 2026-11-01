@@ -10,6 +10,8 @@
 ESP_EVENT_DEFINE_BASE(MOTOR_EVENT_BASE);
 
 
+NavigationData navigation_data;
+
     // int16_t microsteps = 8;
 extern "C" void app_main(void) {
     
