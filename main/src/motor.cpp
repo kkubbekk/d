@@ -20,44 +20,93 @@ extern  QueueHandle_t cmndQueue;
             move_to_angle(angle_buf);
         }
 
-        vTaskDelay(10);
+     
 
     }
 }
-
-void STEPPER_MOTOR:: motor_isr_handler(void *arg)
+void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
 {
-     timer_group_clr_intr_status_in_isr(TIMER_GROUP_0, TIMER_NUM_0);
+    timer_group_clr_intr_status_in_isr(TIMER_GROUP_0, TIMER_NUM_0);
 
+    if (ramp == STOP) {
+        is_motor_stopped = true;
+        return;
+    }
+
+   
+    gpio_set_level(MOTOR_STEP, 1);
     
-    step_state = !step_state;
-    gpio_set_level(MOTOR_STEP, step_state);
 
-    if (step_state) 
-    {
-        if (total_steps < target_steps)
-        {
-            gpio_set_level(MOTOR_DIR, 1);
-            dir_forward = true;
-            total_steps++;
-        }
-        else if (total_steps > target_steps)
-        {
-            gpio_set_level(MOTOR_DIR, 0);
-            dir_forward = false;
-            total_steps--;
-        }
+    __asm__ __volatile__("nop; nop; nop; nop; nop; nop;");
+    
+    if (dir_forward) total_steps++;
+    else total_steps--;
+    
+    gpio_set_level(MOTOR_STEP, 0);
+
+    std::int32_t new_step_delay;
+
+    switch (ramp) {
+        case ACCEL:
+            step_count++;
+            accel_count++;
+            
+             
+            new_step_delay = step_delay - ((2 * step_delay) + rest) / (4 * accel_count + 1);
+            rest = ((2 * step_delay) + rest) % (4 * accel_count + 1);
+            step_delay = new_step_delay;
+
+            if (step_count >= decel_start) {
+                accel_count = decel_val; 
+                ramp = DECEL;
+            } else if (step_delay <= min_delay) {
+                rest = 0;
+                step_delay = min_delay;
+                ramp = RUN;
+            }
+            break;
+
+        case RUN:
+            step_count++;
+            if (step_count >= decel_start) {
+                accel_count = decel_val;
+                ramp = DECEL;
+            }
+            break;
+
+        case DECEL:
+            step_count++;
+            accel_count++; 
+            
+            new_step_delay = step_delay - ((2 * step_delay) + rest) / (4 * accel_count + 1);
+            rest = ((2 * step_delay) + rest) % (4 * accel_count + 1);
+            step_delay = new_step_delay;
+
+            if (accel_count >= 0) {
+                ramp = STOP;
+            }
+            break;
+
+        case STOP:
+            break;
+    }
+
   
-    }
-
-    if(total_steps != target_steps)
-    {
-        timer_group_enable_alarm_in_isr(TIMER_GROUP_0, TIMER_NUM_0);
-    }
-
+    timer_group_set_alarm_value_in_isr(TIMER_GROUP_0, TIMER_NUM_0, step_delay);
+    timer_group_enable_alarm_in_isr(TIMER_GROUP_0, TIMER_NUM_0);
 }
-      
+
+
+ void  STEPPER_MOTOR::event_handler(void* handler_args, esp_event_base_t base, int32_t id, void* event_data) {
     
+        STEPPER_MOTOR* self = static_cast<STEPPER_MOTOR*>(handler_args);
+        
+        if (id == YOLO_CMND_EVENT) {
+            float new_angle = *static_cast<float*>(event_data);
+            // Wrzucamy do prywatnej kolejki
+            xQueueOverwrite(self->cmndQueue, &new_angle); 
+        }
+    }
 
 
  void IRAM_ATTR STEPPER_MOTOR::tim_isr_trampoline(void *arg)
@@ -66,7 +115,7 @@ void STEPPER_MOTOR:: motor_isr_handler(void *arg)
 
         motor->motor_isr_handler(arg);
     } 
-    static void motor_thread_wrapper(void* argument)
+    void motor_thread_wrapper(void* argument)
     {
         STEPPER_MOTOR* motor = static_cast<STEPPER_MOTOR *>(argument);
 
@@ -117,9 +166,9 @@ void STEPPER_MOTOR:: motor_isr_handler(void *arg)
 
     gpio_set_level(MOTOR_ENABLE, 0);
 
-
     step_state = 0;
-    gpio_set_level(MOTOR_STEP, step_state);
+
+    gpio_set_level(MOTOR_STEP, step_state); 
 
     timer_pause(TIMER_GROUP_0, TIMER_NUM_0);
     timer_set_counter_value(TIMER_GROUP_0, TIMER_NUM_0, 0);
@@ -181,12 +230,56 @@ void STEPPER_MOTOR:: motor_isr_handler(void *arg)
     float steps_per_degree = (STEPS_PER_REVOLUTION * microsteps) / 360.0f;
     int32_t steps_to_add = static_cast<int32_t>(roundf(diff * steps_per_degree));
 
+    if (steps_to_add == 0) return;
+
     portENTER_CRITICAL(&timer_mux);
-    target_steps = total_steps + steps_to_add; 
-    
-    timer_set_alarm(TIMER_GROUP_0, TIMER_NUM_0, TIMER_ALARM_EN);
-    portEXIT_CRITICAL(&timer_mux);
+    if (steps_to_add > 0) {
+        dir_forward = true;
+        gpio_set_level(MOTOR_DIR, 1);
+    } else {
+        dir_forward = false;
+        gpio_set_level(MOTOR_DIR, 0);
     }
+
+    int32_t steps_to_move = abs(steps_to_add);
+
+  
+    min_delay = static_cast<int32_t>(ft / target_speed);
+
+    step_delay = static_cast<int32_t>(0.676f * ft * sqrtf(2.0f / accel));
+
+ 
+    int32_t max_s_lim = static_cast<int32_t>((target_speed * target_speed) / (2.0f * accel));
+    
+    int32_t accel_lim = steps_to_move / 2;
+
+    if (max_s_lim < accel_lim) {
+     
+        decel_start = steps_to_move - max_s_lim;
+        decel_val = -max_s_lim;
+    } else {
+  
+        decel_start = accel_lim;
+        decel_val = -accel_lim;
+    }
+
+
+    step_count = 0;
+    accel_count = 0;
+    rest = 0;
+    ramp = (steps_to_move == 1) ? DECEL : ACCEL;
+    is_motor_stopped = false;
+
+    // Start timera
+    timer_set_counter_value(TIMER_GROUP_0, TIMER_NUM_0, 0);
+    timer_set_alarm_value(TIMER_GROUP_0, TIMER_NUM_0, step_delay);
+    timer_set_alarm(TIMER_GROUP_0, TIMER_NUM_0, TIMER_ALARM_EN);
+    timer_start(TIMER_GROUP_0, TIMER_NUM_0);
+    
+    portEXIT_CRITICAL(&timer_mux);
+}
+
+ 
 
 
     void STEPPER_MOTOR::stop_motor()

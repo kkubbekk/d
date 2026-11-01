@@ -1,0 +1,31 @@
+# ESP-IDF build files
+build/
+
+# ESP-IDF configuration
+sdkconfig
+sdkconfig.old
+sdkconfig.backup
+
+# Dependencies
+managed_components/
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
