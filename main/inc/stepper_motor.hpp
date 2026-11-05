@@ -49,7 +49,7 @@ enum class MotorState : uint8_t {
 //pozniej wydziele klase tmc moze
 class STEPPER_MOTOR
 {
-    
+    TMC tmc_2209;
     MotorState state_motor{MotorState::WAIT_FOR_HOME};
     QueueHandle_t cmndQueue;
     volatile ramp_state_t ramp{STOP};
@@ -90,11 +90,11 @@ class STEPPER_MOTOR
     // }
 
     public:
-     TMC tmc_2209;
+     
 
     static void event_handler(void* handler_args, esp_event_base_t base, int32_t id, void* event_data);
 
-     void motor_init();
+    void motor_init(std::uint8_t microsteps,std::uint16_t hold_current,std::uint16_t irun_current,std::uint8_t stallguar_act_point = 100);
     
     void start_motor();
 
@@ -116,7 +116,6 @@ class STEPPER_MOTOR
 
     void motor_thread();
 
-    void start_rtos_thread(uint32_t stack_size, uint8_t priority);
     
 
     void move_to_angle(float angle_target);
@@ -125,6 +124,10 @@ class STEPPER_MOTOR
     void stop_motor();
    
     void set_microsteps(uint16_t ms);
+
+    void set_current(std::uint16_t hold_current_percent,std::uint16_t run_current_percent);
+
+    
  
     
 

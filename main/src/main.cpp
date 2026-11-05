@@ -5,7 +5,9 @@
 #include <math.h>
 
 #include "my_events.hpp"
-//
+
+const char* main_tag = "MAIN";
+
 
 ESP_EVENT_DEFINE_BASE(MOTOR_EVENT_BASE);
 
@@ -20,24 +22,18 @@ extern "C" void app_main(void) {
     
     // motor_test.gpio_setup();
    
-    motor_test.motor_init();
+    motor_test.motor_init(16,50,70);
     motor_test.start_motor();
 
-    motor_test.tmc_2209.tmc_init();
-
-    motor_test.tmc_2209.set_current(50, 10);
-
-   
-    motor_test.tmc_2209.set_microsteps(8);
 
 
-    motor_test.tmc_2209.set_stallguard_activation_val(50);
 
 
-    motor_test.tmc_2209.set_stall_guard_vel_starting_point();
+    
 
-   
-    motor_test.start_rtos_thread(4096,3); 
+
+
+
 
 
 
@@ -57,14 +53,13 @@ extern "C" void app_main(void) {
 
         esp_event_handler_register_with(loop_handle, MOTOR_EVENT_BASE, YOLO_CMND_EVENT, &STEPPER_MOTOR::event_handler, &motor_test);
 
-     BLE dupka(loop_handle,"hihi");   
-         dupka.ble_init();
+        BLE dupka(loop_handle,"hihi");   
+        dupka.ble_init();
 
 
 
 
     // motor_test.tmc2209_write_cmnd(0x10, 0x00041008);
-    const char* main_tag = "MAIN";
         for(;;)
     {
 

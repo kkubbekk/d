@@ -5,25 +5,6 @@
 extern  QueueHandle_t cmndQueue;
 
 
- void STEPPER_MOTOR::motor_thread()
- {
-    float angle_buf;
-
-    
-
-    for(;;)
-    {
-
-
-        if (xQueueReceive(cmndQueue, &angle_buf, portMAX_DELAY) == pdTRUE) {
-            ESP_LOGI(TAG, "Received angle %.2f", angle_buf);
-            move_to_angle(angle_buf);
-        }
-
-     
-
-    }
-}
 void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
 {
     timer_group_clr_intr_status_in_isr(TIMER_GROUP_0, TIMER_NUM_0);
@@ -37,7 +18,7 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
     gpio_set_level(MOTOR_STEP, 1);
     
 
-    __asm__ __volatile__("nop; nop; nop; nop; nop; nop;"); // linijka z chata wydluzam impuls na high zeby tmc zalapalo
+   // __asm__ __volatile__("nop; nop; nop; nop; nop; nop;"); // linijka z chata wydluzam impuls na high zeby tmc zalapalo
     
     if (dir_forward) total_steps++;
     else total_steps--;
@@ -119,20 +100,10 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
 
         motor->motor_isr_handler(arg);
     } 
-    void motor_thread_wrapper(void* argument)
-    {
-        STEPPER_MOTOR* motor = static_cast<STEPPER_MOTOR *>(argument);
+  
 
-        motor->motor_thread();
-
-        // ESP_LO`GE(TAG,"WYPIERDOLILO THREADA OD MOTURA");
-    
-        vTaskDelete(NULL); 
-
-
-    }
  
-       void STEPPER_MOTOR::motor_init()
+     void STEPPER_MOTOR::motor_init(std::uint8_t microsteps,std::uint16_t hold_current,std::uint16_t irun_current,std::uint8_t stallguar_act_point)
     {
         //gpio na conf
         gpio_config_t gpio_motor_config = {
@@ -162,10 +133,34 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
         timer_set_alarm_value(TIMER_GROUP_0, TIMER_NUM_0, ISR_STARTING_COOLDOWN);
         timer_isr_register(TIMER_GROUP_0, TIMER_NUM_0, &tim_isr_trampoline, this, ESP_INTR_FLAG_IRAM, NULL);
         timer_enable_intr(TIMER_GROUP_0, TIMER_NUM_0);
+
+        set_microsteps(microsteps);
+
+        set_current(hold_current,irun_current);
+
+        start_motor();
+
+      
+
+        
+
+
     }
+
+
+    void STEPPER_MOTOR::set_current(std::uint16_t hold_current_percent,std::uint16_t run_current_percent)
+    {
+        if(hold_current_percent > 100) hold_current_percent = 100;
+     
+
+        if(run_current_percent > 100) run_current_percent = 100;
     
 
-     void STEPPER_MOTOR::start_motor()
+        tmc_2209.set_current(run_current_percent,hold_current_percent);
+    }
+
+
+    void STEPPER_MOTOR::start_motor()
 {
 
     gpio_set_level(MOTOR_ENABLE, 0);
@@ -200,18 +195,7 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
         return normalized;
 
     }
-    void STEPPER_MOTOR::start_rtos_thread(uint32_t stack_size, uint8_t priority)
-    {
-        xTaskCreatePinnedToCore(
-            motor_thread_wrapper,
-            "task do silnika",
-            stack_size,
-            this,
-            priority,
-            NULL,
-            1 
-        );
-    }
+
     void STEPPER_MOTOR::move_to_angle(float angle_target)
     {
     
