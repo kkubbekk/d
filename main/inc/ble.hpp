@@ -84,28 +84,28 @@
 
                     }
                 }
-                if(pCharacteristic == pCharacteristic_gps)
-                {
-                    NimBLEAttValue rx_data = pCharacteristic->getValue();
+                // if(pCharacteristic == pCharacteristic_gps)
+                // {
+                //     NimBLEAttValue rx_data = pCharacteristic->getValue();
                     
-                    if(rx_data.length() == sizeof(gps_struct_t))
-                    {
-                        gps_struct_t dupka;
+                //     if(rx_data.length() == sizeof(gps_struct_t))
+                //     {
+                //         gps_struct_t dupka;
                         
-                        std::memcpy(&dupka, rx_data.data(), sizeof(gps_struct_t));
+                //         std::memcpy(&dupka, rx_data.data(), sizeof(gps_struct_t));
 
-                        ESP_LOGI("BLE", "Lat: %.6f, Azimuth: %.2f, Home: %d", 
-                        dupka.latitude, dupka.azimuth, dupka.home_flag);
+                //         ESP_LOGI("BLE", "Lat: %.6f, Azimuth: %.2f, Home: %d", 
+                //         dupka.latitude, dupka.azimuth, dupka.home_flag);
                         
-                            esp_event_post_to(event_loop,MOTOR_EVENT_BASE,GPS_CMND_EVENT,
-                            &dupka, sizeof(gps_struct_t),portMAX_DELAY);
+                //             esp_event_post_to(event_loop,MOTOR_EVENT_BASE,GPS_CMND_EVENT,
+                //             &dupka, sizeof(gps_struct_t),portMAX_DELAY);
                         
-                    }
-                    else
-                    {
-                        ESP_LOGE("GPS_DATA","ZLY ROZMIAR INFO ");
-                    }
-                }
+                //     }
+                //     else
+                //     {
+                //         ESP_LOGE("GPS_DATA","ZLY ROZMIAR INFO ");
+                //     }
+                // }
             }
             //telefon prosi o dane mozna uzyc za pierwsyzm razem zeby zhomingowac sobie stepper i wyznaczyc zero
             void onRead(NimBLECharacteristic* pCharacteristic, NimBLEConnInfo& connInfo) override {

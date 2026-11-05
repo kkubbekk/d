@@ -10,7 +10,7 @@
 ESP_EVENT_DEFINE_BASE(MOTOR_EVENT_BASE);
 
 
-NavigationData navigation_data;
+// NavigationData navigation_data;
 
     // int16_t microsteps = 8;
 extern "C" void app_main(void) {
@@ -57,7 +57,7 @@ extern "C" void app_main(void) {
 
         esp_event_handler_register_with(loop_handle, MOTOR_EVENT_BASE, YOLO_CMND_EVENT, &STEPPER_MOTOR::event_handler, &motor_test);
 
-     BLE dupka(loop_handle,"rafal_cwel", 0x1234,0x1236,0x1235);   
+     BLE dupka(loop_handle,"hihi");   
          dupka.ble_init();
 
 
