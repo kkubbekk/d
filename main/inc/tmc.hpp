@@ -134,7 +134,7 @@ class TMC
 
     void tmc_init()
     {
-        esp_err_t ret = ESP_FAIL;       // uart w half duplex do komunikacji z tmc2209
+        // uart w half duplex do komunikacji z tmc2209
         uart_config_t uart_conf =
         {
                 .baud_rate = 115200,
@@ -142,11 +142,13 @@ class TMC
                 .parity    = UART_PARITY_DISABLE,
                 .stop_bits = UART_STOP_BITS_1,
                 .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+                .rx_flow_ctrl_thresh = 0,
+                .source_clk = UART_SCLK_DEFAULT,
         };
-        ret = uart_param_config(UART_NUM_1, &uart_conf);
-        ret = uart_set_pin(UART_NUM_1,UART_TX,UART_RX,UART_PIN_NO_CHANGE,UART_PIN_NO_CHANGE);
+        uart_param_config(UART_NUM_1, &uart_conf);
+        uart_set_pin(UART_NUM_1,UART_TX,UART_RX,UART_PIN_NO_CHANGE,UART_PIN_NO_CHANGE);
         
-        ret = uart_driver_install(UART_NUM_1, BUFF_SIZE, BUFF_SIZE, 0, NULL, 0);
+        uart_driver_install(UART_NUM_1, BUFF_SIZE, BUFF_SIZE, 0, NULL, 0);
 
         tmc2209_write_cmnd(GCONF,gconf_state);
 
@@ -160,13 +162,13 @@ class TMC
                         .intr_type = GPIO_INTR_POSEDGE,
                     };
                     
-                    ret = gpio_config(&int_gpio);
+                    gpio_config(&int_gpio);
 
-                    ret = gpio_install_isr_service(ESP_INTR_FLAG_IRAM);
+                    gpio_install_isr_service(ESP_INTR_FLAG_IRAM);
 
 
                    
-                 ret = gpio_isr_handler_add(STALL_GUARD_INT_PIN,stall_guard_isr_trampoline,this);
+                 gpio_isr_handler_add(STALL_GUARD_INT_PIN,stall_guard_isr_trampoline,this);
     
          }
     std::uint16_t set_microsteps(std::uint16_t motor_microsteps)

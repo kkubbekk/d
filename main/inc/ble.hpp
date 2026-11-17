@@ -1,12 +1,10 @@
-        #include "NimBLEDevice.h"
-        #include "esp_log.h"
-        #include "esp_timer.h"
-        #include "gps.hpp"
-        #include "my_events.hpp"
-
-        // ESP_EVENT_DECLARE_BASE(MOTOR_EVENT_BASE);
-
-        //TODO: pozniej zrobi sie  ten stojak bardziej event driven to yolo bedzie nadawac komendy i odpytywac o dane 
+#pragma once
+#include <cstring>
+#include "NimBLEDevice.h"
+#include "esp_log.h"
+#include "esp_timer.h"
+#include "gps.hpp"
+#include "shared_data.hpp"
 
         //UUID
         constexpr uint16_t BLE_SERVICE_UUID = 0x4A00;
@@ -18,8 +16,7 @@
         class BLE : public NimBLEServerCallbacks,public NimBLECharacteristicCallbacks
         {
             
-        
-            esp_event_loop_handle_t event_loop;
+            SharedNavigationData& nav_data;
             const char* TAG = "BLE_MODULE";
             std::string name_;
             std::uint32_t last_time_notify{0};
@@ -73,39 +70,39 @@
 
                     //TEST!!!!!
                     std::uint8_t len = received_data.length();
-                    float ble_angle{};
-                    if(len>0)
+            
+                    if(len == sizeof(float)) // pozniej sie doda jakis bit kontrolny czy cos ale to jak juz sie naklepie aplikcja
                     {
-                        ble_angle = atof(received_data.c_str());
-                        ESP_LOGI("BLE", "Odebrano string: %s, Kąt float: %.2f", received_data.c_str(), ble_angle);
+                       
+                       
+                        float ble_angle = 0.0f;
+    
+                        std::memcpy(&ble_angle, received_data.data(), sizeof(float));
 
-                        esp_event_post_to(event_loop, MOTOR_EVENT_BASE, YOLO_CMND_EVENT, 
-                                &ble_angle, sizeof(float), portMAX_DELAY);
+                        ESP_LOGI("BLE", "Odebrano %d bajtow. Kąt float: %.2f", len, ble_angle);
+
+                        nav_data.latest_yolo_error.store(ble_angle, std::memory_order_relaxed);
+                        nav_data.yolo_last_timestamp.store(static_cast<uint32_t>(esp_timer_get_time() / 1000ULL), std::memory_order_relaxed);
+                        nav_data.new_yolo_data.store(true, std::memory_order_release);
 
                     }
                 }
-                // if(pCharacteristic == pCharacteristic_gps)
-                // {
-                //     NimBLEAttValue rx_data = pCharacteristic->getValue();
-                    
-                //     if(rx_data.length() == sizeof(gps_struct_t))
-                //     {
-                //         gps_struct_t dupka;
-                        
-                //         std::memcpy(&dupka, rx_data.data(), sizeof(gps_struct_t));
+                if(pCharacteristic == pCharacteristic_gps)
+                {
+                    NimBLEAttValue rx_data = pCharacteristic->getValue();
+                    if (rx_data.length() == sizeof(gps_struct_t))
+                    {
+                        gps_struct_t gps_pkt{};
+                        std::memcpy(&gps_pkt, rx_data.data(), sizeof(gps_struct_t));
 
-                //         ESP_LOGI("BLE", "Lat: %.6f, Azimuth: %.2f, Home: %d", 
-                //         dupka.latitude, dupka.azimuth, dupka.home_flag);
-                        
-                //             esp_event_post_to(event_loop,MOTOR_EVENT_BASE,GPS_CMND_EVENT,
-                //             &dupka, sizeof(gps_struct_t),portMAX_DELAY);
-                        
-                //     }
-                //     else
-                //     {
-                //         ESP_LOGE("GPS_DATA","ZLY ROZMIAR INFO ");
-                //     }
-                // }
+                        nav_data.base_lat.store(gps_pkt.latitude, std::memory_order_relaxed);
+                        nav_data.base_lon.store(gps_pkt.longitude, std::memory_order_relaxed);
+                        nav_data.base_azimuth.store(gps_pkt.azimuth, std::memory_order_relaxed);
+                        if (gps_pkt.homing) {
+                            nav_data.request_homing.store(true, std::memory_order_release);
+                        }
+                    }
+                }
             }
             //telefon prosi o dane mozna uzyc za pierwsyzm razem zeby zhomingowac sobie stepper i wyznaczyc zero
             void onRead(NimBLECharacteristic* pCharacteristic, NimBLEConnInfo& connInfo) override {
@@ -115,10 +112,10 @@
 
 
 
-            BLE(esp_event_loop_handle_t event_handle,std::string name) : event_loop(event_handle)
-            {
+            BLE(SharedNavigationData& shared_data, std::string name) : nav_data(shared_data), name_(name) {
 
             }
+         
             void send_data(uint8_t * data,size_t size)
             {
                 if(subscribed)

@@ -6,8 +6,7 @@
 #include "esp_log.h"
 #include "tmc.hpp"
 #include <cmath>
-#include "esp_event.h"
-#include "my_events.hpp"
+
 
 #define MOTOR_ENABLE GPIO_NUM_19
 #define MOTOR_STEP GPIO_NUM_18
@@ -36,8 +35,8 @@ enum class MotorState : uint8_t {
 #define STEPS_PER_REVOLUTION 200 //defualtowa wartosc bez mikrokrokow
 #define MOTOR_ANGLE_MIN 0
 #define MOTOR_ANGLE_MAX 360
-#define target_speed 4000.0f // max predkosc kroki/s
-#define accel 2500.0f //przyspieszenie kroki/s^2
+#define target_speed 100000.0f // max predkosc kroki/s
+#define accel 5000.0f //przyspieszenie kroki/s^2
 #define ft  1000000.0f // czestotliwosc przerwan
   
 
@@ -49,6 +48,7 @@ enum class MotorState : uint8_t {
 //pozniej wydziele klase tmc moze
 class STEPPER_MOTOR
 {
+    
     TMC tmc_2209;
     MotorState state_motor{MotorState::WAIT_FOR_HOME};
     QueueHandle_t cmndQueue;
@@ -68,7 +68,7 @@ class STEPPER_MOTOR
     volatile std::int32_t decel_start{0};   
     volatile std::int32_t rest{0};
 
-    uint16_t microsteps{8};
+    uint16_t microsteps{16};
 
     
     void motor_isr_handler(void *arg);
@@ -79,7 +79,7 @@ class STEPPER_MOTOR
     xQueueOverwrite(cmndQueue, &target_angle);
     }
   
-   
+
 
    
     // void calculate_motor_ramp_cldwn()
@@ -91,15 +91,15 @@ class STEPPER_MOTOR
 
     public:
      
+    void set_current_pos_as_zero();
 
-    static void event_handler(void* handler_args, esp_event_base_t base, int32_t id, void* event_data);
 
-    void motor_init(std::uint8_t microsteps,std::uint16_t hold_current,std::uint16_t irun_current,std::uint8_t stallguar_act_point = 100);
+    void motor_init(std::uint16_t microsteps,std::uint16_t hold_current,std::uint16_t irun_current,std::uint8_t stallguar_act_point = 100);
     
     void start_motor();
 
      STEPPER_MOTOR() {
-        cmndQueue = xQueueCreate(1, sizeof(float));
+
     }
 
 
@@ -116,7 +116,7 @@ class STEPPER_MOTOR
 
     void motor_thread();
 
-    
+    void move_by_delta(float delta);
 
     void move_to_angle(float angle_target);
 

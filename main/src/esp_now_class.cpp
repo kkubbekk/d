@@ -84,7 +84,7 @@ esp_err_t ESP_NOW::ESPNOW_LINK()
         }
 
          //callback for band 
-        void ESP_NOW::espnow_send_cb(uint8_t peer_adrr,const wifi_tx_info_t *tx_info, esp_now_send_status_t status)
+        void ESP_NOW::espnow_send_cb(const uint8_t *mac_addr, esp_now_send_status_t status)
          {
             if (semhandle != NULL) 
             {
