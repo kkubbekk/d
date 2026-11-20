@@ -45,6 +45,7 @@ class TRACKER
 
     bool deadzone();
     
+    float gps_angle();
 
 public:
     TRACKER(SharedNavigationData &shared_data) : nav_data(shared_data) {}

@@ -1,6 +1,7 @@
 #include "tracker_controller.hpp"
 #include "shared_data.hpp"
 #include "esp_timer.h"
+#include "servo.hpp"
 
 void TRACKER::home_initialization()
 {
@@ -31,12 +32,20 @@ bool TRACKER::is_connection_timmeout()
   std::uint32_t curr_time = static_cast<uint32_t>(esp_timer_get_time() / 1000ULL);
   if (curr_time - nav_data.yolo_last_timestamp > 500ULL)
   {
-    ESP_LOGI(TRACKER_TAG, "Wyjebalo sie komunikacja");
+    // ESP_LOGI(TRACKER_TAG, "Wyjebalo sie komunikacja");
     err = true;
   }
   // pozniej dodamy naprzyklad timeout z gps esp nowczy tam lora
 
   return err;
+}
+
+float TRACKER::gps_angle()
+{
+  float d_lat = nav_data.target_gps_lat - nav_data.base_lat;
+  float d_lon = (nav_data.target_gps_lon - nav_data.base_lon) * cosf(nav_data.base_lat * M_PI / 180.0f);
+
+  return atan2f(d_lon, d_lat) * 180.0f / M_PI;
 }
 
 void TRACKER::start_motor_rtos_thread()
@@ -46,34 +55,45 @@ void TRACKER::start_motor_rtos_thread()
 
 void TRACKER::stepper_motor_thread_loop()
 {
-  Motor.motor_init(16, 50, 70);
+  Motor.motor_init(32, 50, 70);
 
   float human_angle = 0.0f;
   float step_deg = 1.5f;
-
+  stand_state_t prev_state = stand_state;
+  Servo servo_test;
   for (;;)
   {
+
+    if (stand_state != prev_state)
+    {
+      ESP_LOGW(TRACKER_TAG, "ZMIANA STANU: %d -> %d | Kat silnika: %.1f deg",
+               static_cast<int>(prev_state),
+               static_cast<int>(stand_state),
+               Motor.get_normalized_angle());
+      prev_state = stand_state;
+    }
+
     switch (stand_state)
     {
     case stand_state_t::WAIT_FOR_CALIB:
       if (nav_data.request_homing.exchange(false, std::memory_order_relaxed))
       {
-        Motor.set_current_pos_as_zero();
+        nav_data.yolo_last_timestamp = esp_timer_get_time() / 1000ULL;
+        Motor.set_current_pos_as_azimuth(nav_data.base_azimuth);
         stand_state = stand_state_t::IDLE;
         is_homed = true;
-      
+        ESP_LOGI(TRACKER_TAG, "WAIT FOR CALIB STATE");
       }
       break;
 
     case stand_state_t::MOVING:
+
       if (Motor.is_stopped())
       {
         stand_state = stand_state_t::IDLE;
-   
       }
 
     case stand_state_t::IDLE:
-
       if (!is_connection_timmeout())
       {
         if (nav_data.yolo_target_lost)
@@ -97,7 +117,7 @@ void TRACKER::stepper_motor_thread_loop()
       }
       break;
 
-      case stand_state_t::ERROR:
+    case stand_state_t::ERROR:
       if (!is_connection_timmeout() && is_homed)
       {
         stand_state = stand_state_t::IDLE;
@@ -110,6 +130,7 @@ void TRACKER::stepper_motor_thread_loop()
         stand_state = stand_state_t::IDLE;
         break;
       }
+      Motor.move_to_angle(gps_angle());
       // if(gps_timeout to tez sie doda pozniej nalora)
       // liczenie rzeczy z gpska
 
