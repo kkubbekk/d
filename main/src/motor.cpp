@@ -131,6 +131,10 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
         start_motor();
 
     }
+    bool STEPPER_MOTOR::is_stopped()
+    {
+        return is_motor_stopped;
+    }
 
 
 
@@ -258,8 +262,7 @@ void IRAM_ATTR STEPPER_MOTOR::motor_isr_handler(void *arg)
             plan_braking(n, sc, R, ramp == RUN);
         }
         else if (ramp == DECEL) {
-            // W DECEL accel_count (n) jest ujemne, a -n oznacza ile krokow potrzebujemy do zatrzymania.
-            // Jesli cel znowu oddalil sie w kierunku jazdy (R > -n), przerywamy hamowanie i plynnie wracamy do ACCEL!
+          
             const int32_t n_pos = -n;
             if (want_forward == dir_forward && steps_to_move > n_pos) {
                 accel_count = n_pos;

@@ -24,9 +24,9 @@
             bool subscribed{false};
             NimBLEService *pService = nullptr;
             NimBLEServer *pServer = nullptr;
-            NimBLECharacteristic *pCharacteristic_data = nullptr;
-            NimBLECharacteristic *pCharacteristic_cmnd = nullptr;
-            NimBLECharacteristic *pCharacteristic_gps = nullptr;
+            NimBLECharacteristic *pCharacteristic_data = nullptr; //dane do apki z telefonu
+            NimBLECharacteristic *pCharacteristic_cmnd = nullptr;//yolo komenda do ruchu + bit czy jest wizja
+            NimBLECharacteristic *pCharacteristic_gps = nullptr; ////info o stojaku azimuth lokalizacja i te sprawy 
 
             
 
@@ -71,7 +71,7 @@
                     //TEST!!!!!
                     std::uint8_t len = received_data.length();
             
-                    if(len == sizeof(float)) // pozniej sie doda jakis bit kontrolny czy cos ale to jak juz sie naklepie aplikcja
+                    // if(len == sizeof(float)) // pozniej sie doda jakis bit kontrolny czy cos ale to jak juz sie naklepie aplikcja
                     {
                        
                        

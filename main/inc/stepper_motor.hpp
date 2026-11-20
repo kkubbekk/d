@@ -90,7 +90,8 @@ class STEPPER_MOTOR
     // }
 
     public:
-     
+    
+    bool is_stopped();
     void set_current_pos_as_zero();
 
 
