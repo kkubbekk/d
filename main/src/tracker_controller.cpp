@@ -18,7 +18,7 @@ void TRACKER::motor_thread_trampoline(void *arg)
 
 bool TRACKER::deadzone()
 {
-  if (std::abs(nav_data.latest_yolo_error) > DEADZONE)
+  if (std::abs(nav_data.latest_yolo_error_x) > DEADZONE)
   {
     return true;
   }
@@ -61,8 +61,24 @@ void TRACKER::stepper_motor_thread_loop()
   float step_deg = 1.5f;
   stand_state_t prev_state = stand_state;
   Servo servo_test;
+  servo_test.servo_init();
+  int servo_count{};
   for (;;)
   {
+    // if (servo_count < 50)
+    // {
+    //   servo_test.servo_move_angle(15);
+
+    //   ESP_LOGI(TRACKER_TAG, "0 servo");
+    // }
+    // else
+    // {
+    //   servo_test.servo_move_angle(165);
+    // }
+    // if (servo_count == 100)
+    //   servo_count = 0;
+
+    // servo_count++;
 
     if (stand_state != prev_state)
     {
@@ -106,7 +122,8 @@ void TRACKER::stepper_motor_thread_loop()
         {
           if (nav_data.new_yolo_data.exchange(false))
           {
-            Motor.move_by_delta(nav_data.latest_yolo_error);
+            Motor.move_by_delta(nav_data.latest_yolo_error_x);
+            servo_test.move_servo_by_delta(nav_data.latest_yolo_error_y);
             stand_state = stand_state_t::MOVING;
           }
         }
@@ -130,7 +147,12 @@ void TRACKER::stepper_motor_thread_loop()
         stand_state = stand_state_t::IDLE;
         break;
       }
-      Motor.move_to_angle(gps_angle());
+      if (nav_data.target_gps_lat != 0.0f && nav_data.target_gps_lon != 0.0f)
+      {
+           Motor.move_to_angle(gps_angle());
+      }
+     
+
       // if(gps_timeout to tez sie doda pozniej nalora)
       // liczenie rzeczy z gpska
 

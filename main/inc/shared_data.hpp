@@ -10,7 +10,8 @@ struct SharedNavigationData {
     std::atomic<bool>  request_homing{false};  
 
     // 2. DANE BIEŻĄCE 
-    std::atomic<float> latest_yolo_error{0.0f};
+    std::atomic<float> latest_yolo_error_x{0.0f};
+    std::atomic<float> latest_yolo_error_y{0.0f};
     std::atomic<bool>  new_yolo_data{false};
     std::atomic<float> target_gps_lat{0.0f};
     std::atomic<float> target_gps_lon{0.0f};

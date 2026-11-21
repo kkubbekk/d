@@ -238,7 +238,13 @@ void STEPPER_MOTOR::move_to_angle(float angle_target)
         dir_forward = want_forward;
         gpio_set_level(MOTOR_DIR, want_forward ? 1 : 0);
 
-        min_delay = static_cast<int32_t>(ft / target_speed);
+        //predkosc zaleznie od uchyby na kamerce
+        float dynamic_speed = steps_to_move *10.0f;
+
+        if(dynamic_speed <500 ) dynamic_speed =500.0f;
+        if(dynamic_speed > 5000) dynamic_speed =5000.f;
+
+        min_delay = static_cast<int32_t>(ft / dynamic_speed);
         step_delay = static_cast<int32_t>(0.676f * ft * sqrtf(2.0f / accel));
 
         plan_braking(0, 0, steps_to_move, false);

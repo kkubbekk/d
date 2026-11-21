@@ -7,7 +7,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#define DEADZONE 0.5
+#define DEADZONE 2
 #define MOTOR_TASK_STACK_SIZE 4096
 
 // chyba zrobic to globalbnie i atomic setem zmieniac

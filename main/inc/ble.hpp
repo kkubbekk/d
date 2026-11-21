@@ -67,21 +67,23 @@ class BLE : public NimBLEServerCallbacks, public NimBLECharacteristicCallbacks
             // TEST!!!!!
             std::uint8_t len = received_data.length();
 
-            if(len == sizeof(float)+sizeof(uint8_t)) // pozniej sie doda jakis bit kontrolny czy cos ale to jak juz sie naklepie aplikcja
+            if(len == 2*sizeof(float)+sizeof(uint8_t)) // pozniej sie doda jakis bit kontrolny czy cos ale to jak juz sie naklepie aplikcja
             {
 
-                float ble_angle = 0.0f;
+                float ble_angle_x = 0.0f;
+                float ble_angle_y = 0.0f;
                 uint8_t yolo_cmnd_flags{}; // pozniej pewnie mozna cos dodac fajnego ni
 
-                std::memcpy(&ble_angle, received_data.data(), sizeof(float));
-                std::memcpy(&yolo_cmnd_flags,received_data.data()+sizeof(float),sizeof(uint8_t));
-
+                std::memcpy(&ble_angle_x, received_data.data(), sizeof(float));
+                std::memcpy(&yolo_cmnd_flags,received_data.data()+2*sizeof(float),sizeof(uint8_t));
+                std::memcpy(&ble_angle_y,received_data.data()+sizeof(float),sizeof(float));
                 // ESP_LOGI("BLE", "Odebrano %d bajtow. Kąt float: %.2f", len, ble_angle);
 
                 bool lost_target = (yolo_cmnd_flags >> 7) & 1;
 
                 nav_data.yolo_target_lost.store(lost_target,std::memory_order_relaxed);
-                nav_data.latest_yolo_error.store(ble_angle, std::memory_order_relaxed);
+                nav_data.latest_yolo_error_x.store(ble_angle_x, std::memory_order_relaxed);
+                nav_data.latest_yolo_error_y.store(ble_angle_y,std::memory_order_relaxed);
                 nav_data.yolo_last_timestamp.store(static_cast<uint32_t>(esp_timer_get_time() / 1000ULL), std::memory_order_relaxed);
                 nav_data.new_yolo_data.store(true, std::memory_order_release);
             }

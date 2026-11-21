@@ -2,4 +2,5 @@
    include($ENV{IDF_PATH}/tools/cmake/project.cmake)
    project(ble_test
    REQUIRES esp_driver_gpio
-   REQUIRES esp_event)
+   REQUIRES esp_event
+   REQUIRES driver servo)

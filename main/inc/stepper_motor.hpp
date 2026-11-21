@@ -35,8 +35,8 @@ enum class MotorState : uint8_t
 #define STEPS_PER_REVOLUTION 200 // defualtowa wartosc bez mikrokrokow
 #define MOTOR_ANGLE_MIN 0
 #define MOTOR_ANGLE_MAX 360
-#define target_speed 10000.0f
-#define accel 12000.0f     
+#define target_speed 1500.0f
+#define accel 1500.0f   
 #define ft 1000000.0f          // czestotliwosc przerwan
 
 // bo mama jakas stara werjse xD
