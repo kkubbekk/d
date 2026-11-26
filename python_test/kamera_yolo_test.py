@@ -60,22 +60,22 @@ def detect_person(frame, height, width):
         cv2.putText(frame, "LOST TARGET (0x80)", (20, 40),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
 
-    return frame, found_person, angle_x, angle_y
+    return frame, found_person, angle_x*0.35, angle_y*0.2
 
 
 async def main():
    
-    cap = cv2.VideoCapture(2)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+    cap = cv2.VideoCapture("/dev/v4l/by-id/usb-Sonix_Technology_Co.__Ltd._USB_2.0_Camera_SN0001-video-index0")
     if not cap.isOpened():
-        print("Nie udalo sie otworzycvideo2")
         cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
         print("Blad: Brak dostepnej kamery!")
         return
+
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -114,7 +114,7 @@ async def main():
                 cv2.imshow("AI Vision Tracker", frame)
                 if (cv2.waitKey(1) & 0xFF) == ord('q'):
                     break
-
+                await asyncio.sleep(0.02)    
         finally:
             cap.release()
             cv2.destroyAllWindows()
