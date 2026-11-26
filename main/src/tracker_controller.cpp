@@ -1,7 +1,8 @@
 #include "tracker_controller.hpp"
 #include "shared_data.hpp"
 #include "esp_timer.h"
-#include "servo.hpp"
+#include <math.h>
+#include "esp_log.h"
 
 void TRACKER::home_initialization()
 {
@@ -16,21 +17,29 @@ void TRACKER::motor_thread_trampoline(void *arg)
   return;
 }
 
-bool TRACKER::deadzone()
+bool TRACKER::deadzone_x()
 {
-  if (std::abs(nav_data.latest_yolo_error_x) > DEADZONE)
+  if (std::abs(nav_data.latest_yolo_error_x) > DEADZONE_X)
+  {
+    return true;
+  }
+  return false;
+}
+bool TRACKER::deadzone_y()
+{
+  if(std::abs(nav_data.latest_yolo_error_y) > DEADZONE_Y)
   {
     return true;
   }
   return false;
 }
 
-bool TRACKER::is_connection_timmeout()
+bool TRACKER::is_connection_timeout(uint32_t data_last_timestamp)
 {
   bool err{false};
 
   std::uint32_t curr_time = static_cast<uint32_t>(esp_timer_get_time() / 1000ULL);
-  if (curr_time - nav_data.yolo_last_timestamp > 500ULL)
+  if (curr_time - data_last_timestamp > 500ULL)
   {
     // ESP_LOGI(TRACKER_TAG, "Wyjebalo sie komunikacja");
     err = true;
@@ -55,47 +64,21 @@ void TRACKER::start_motor_rtos_thread()
 
 void TRACKER::stepper_motor_thread_loop()
 {
-  Motor.motor_init(32, 50, 70);
 
   float human_angle = 0.0f;
   float step_deg = 1.5f;
   stand_state_t prev_state = stand_state;
-  Servo servo_test;
-  servo_test.servo_init();
+
   int servo_count{};
   for (;;)
   {
-    // if (servo_count < 50)
-    // {
-    //   servo_test.servo_move_angle(15);
-
-    //   ESP_LOGI(TRACKER_TAG, "0 servo");
-    // }
-    // else
-    // {
-    //   servo_test.servo_move_angle(165);
-    // }
-    // if (servo_count == 100)
-    //   servo_count = 0;
-
-    // servo_count++;
-
-    if (stand_state != prev_state)
-    {
-      ESP_LOGW(TRACKER_TAG, "ZMIANA STANU: %d -> %d | Kat silnika: %.1f deg",
-               static_cast<int>(prev_state),
-               static_cast<int>(stand_state),
-               Motor.get_normalized_angle());
-      prev_state = stand_state;
-    }
-
     switch (stand_state)
     {
     case stand_state_t::WAIT_FOR_CALIB:
       if (nav_data.request_homing.exchange(false, std::memory_order_relaxed))
       {
         nav_data.yolo_last_timestamp = esp_timer_get_time() / 1000ULL;
-        Motor.set_current_pos_as_azimuth(nav_data.base_azimuth);
+        axis_x.set_current_pos_as_azimuth(nav_data.base_azimuth);
         stand_state = stand_state_t::IDLE;
         is_homed = true;
         ESP_LOGI(TRACKER_TAG, "WAIT FOR CALIB STATE");
@@ -104,13 +87,13 @@ void TRACKER::stepper_motor_thread_loop()
 
     case stand_state_t::MOVING:
 
-      if (Motor.is_stopped())
+      if (axis_x.is_stopped())
       {
         stand_state = stand_state_t::IDLE;
       }
 
     case stand_state_t::IDLE:
-      if (!is_connection_timmeout())
+      if (!is_connection_timeout(nav_data.yolo_last_timestamp))
       {
         if (nav_data.yolo_target_lost)
         {
@@ -118,15 +101,17 @@ void TRACKER::stepper_motor_thread_loop()
           break;
         }
 
-        if (deadzone())
-        {
+     
           if (nav_data.new_yolo_data.exchange(false))
           {
-            Motor.move_by_delta(nav_data.latest_yolo_error_x);
-            servo_test.move_servo_by_delta(nav_data.latest_yolo_error_y);
+            if(deadzone_x()) axis_x.move_by_delta(nav_data.latest_yolo_error_x);
+            if(deadzone_y()) axis_y.move_by_delta(nav_data.latest_yolo_error_y);
+
             stand_state = stand_state_t::MOVING;
+
+            axis_y.move_by_delta(nav_data.latest_yolo_error_y);
           }
-        }
+        
       }
       else
       {
@@ -135,23 +120,26 @@ void TRACKER::stepper_motor_thread_loop()
       break;
 
     case stand_state_t::ERROR:
-      if (!is_connection_timmeout() && is_homed)
+      if (!is_connection_timeout(nav_data.yolo_last_timestamp) && is_homed &&is_connection_timeout(nav_data.gps_last_timestamp))
       {
         stand_state = stand_state_t::IDLE;
       }
       break;
 
     case stand_state_t::LOST_VISSION:
-      if (!is_connection_timmeout() && nav_data.yolo_target_lost == false)
+      if (!is_connection_timeout(nav_data.yolo_last_timestamp) && nav_data.yolo_target_lost == false)
       {
         stand_state = stand_state_t::IDLE;
         break;
       }
+      if (nav_data.gps_last_timestamp)
+      {
+        stand_state = stand_state_t::ERROR;
+      }
       if (nav_data.target_gps_lat != 0.0f && nav_data.target_gps_lon != 0.0f)
       {
-           Motor.move_to_angle(gps_angle());
+        axis_x.move_to_angle(gps_angle());
       }
-     
 
       // if(gps_timeout to tez sie doda pozniej nalora)
       // liczenie rzeczy z gpska
@@ -164,23 +152,5 @@ void TRACKER::stepper_motor_thread_loop()
 
     vTaskDelay(pdMS_TO_TICKS(20));
 
-    // human_angle += step_deg;
-    // if (human_angle >= 360.0f) {
-    //     human_angle = 360.0f;
-    //     step_deg = -1.5f; // Zawrot w lewo!
-    // } else if (human_angle <= 0.0f) {
-    //     human_angle = 0.0f;
-    //     step_deg = 1.5f;  // Zawrot w prawo!
-    // }
-
-    // Motor.move_to_angle(180);
-
-    //  Motor.move_to_angle(180);
-    //   Motor.move_to_angle(180);
-    // vTaskDelay(pdMS_TO_TICKS(1000));
-    // Motor.move_to_angle(360);
-    //      Motor.move_to_angle(360);
-    //           Motor.move_to_angle(360);
-    // vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }

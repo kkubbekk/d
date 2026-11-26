@@ -196,7 +196,7 @@ public:
         return motor_microsteps;
     }
 
-    // imo lepiej korzystac z gpio tylko motor dir i chuj
+    // imo lepiej korzystac z gpio tylko motor dir
     void change_direction()
     {
         gconf_state ^= (1 << 3);

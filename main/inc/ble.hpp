@@ -44,6 +44,8 @@ class BLE : public NimBLEServerCallbacks, public NimBLECharacteristicCallbacks
 
         // dodac weryfikacje czy ulaczymy sie faktycznie z naszym stoajkiem a nie innym gownem
         connected = true;
+        pServer->updateConnParams(connInfo.getConnHandle(), 6, 12, 0, 100);
+
     }
     // telefon wlaczyl lub wylaczycl charakterystyka dodac jakas flage zeby skorzystac z notify
     void onSubscribe(NimBLECharacteristic *pCharacteristic, NimBLEConnInfo &connInfo, uint16_t subValue) override

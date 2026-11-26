@@ -47,6 +47,8 @@ import asyncio
 import struct
 from bleak import BleakScanner, BleakClient
 
+
+
 ESP_BLUETOOTH_NAME = "hihi"
 YOLO_UUID = "4A02"
 HOMEGPS_UUID = "4A03"

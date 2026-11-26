@@ -1,16 +1,18 @@
 
 #pragma once
 
-#include "stepper_motor.hpp"
+#include "Iaxis.hpp"
 #include "gps.hpp"
 #include "shared_data.hpp"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#define DEADZONE 2
-#define MOTOR_TASK_STACK_SIZE 4096
 
-// chyba zrobic to globalbnie i atomic setem zmieniac
+#define DEADZONE 1
+#define MOTOR_TASK_STACK_SIZE 4096
+#define DEADZONE_X 1
+#define DEADZONE_Y 0.7
+
 enum class stand_state_t : std::uint8_t
 {
     WAIT_FOR_CALIB = 0, // czekamy na calib z yolo
@@ -29,11 +31,12 @@ class TRACKER
     float latitude{};
     float longitude{};
     bool is_homed{false};
+    TaskHandle_t MOTOR_TASK_HANDLE = NULL;
 
     float azimuth{}; // azymuth z yolo
 
-    STEPPER_MOTOR Motor;
-    TaskHandle_t MOTOR_TASK_HANDLE = NULL;
+    Iaxis &axis_x;
+    Iaxis &axis_y;
 
     static void motor_thread_trampoline(void *arg);
 
@@ -41,14 +44,16 @@ class TRACKER
 
     void home_initialization();
 
-    bool is_connection_timmeout();
+    bool is_connection_timeout(uint32_t data_timestamp);
 
-    bool deadzone();
+    bool deadzone_x();
+
+    bool deadzone_y();
     
     float gps_angle();
 
 public:
-    TRACKER(SharedNavigationData &shared_data) : nav_data(shared_data) {}
+    TRACKER(SharedNavigationData &shared_data,Iaxis &x,Iaxis &y) : nav_data(shared_data) , axis_x(x),axis_y(y) {}
 
     void start_motor_rtos_thread();
 };

@@ -6,51 +6,36 @@
 #include "esp_log.h"
 #include "tmc.hpp"
 #include <cmath>
+#include "Iaxis.hpp"
+#include "esp_timer.h"
 
 #define MOTOR_ENABLE GPIO_NUM_19
 #define MOTOR_STEP GPIO_NUM_18
 #define MOTOR_DIR GPIO_NUM_5
+#define KP 0.3
+#define KD 1
 
 // mottor
-
-typedef enum
-{
-    STOP = 0,
-    ACCEL,
-    RUN,
-    DECEL
-} ramp_state_t;
-
-enum class MotorState : uint8_t
-{
-    WAIT_FOR_HOME,
-    INITIALIZED,
-    IDLE,
-    TRACKING,
-    ERROR
-};
 
 // moptor parameters
 #define ISR_STARTING_COOLDOWN 1000
 #define STEPS_PER_REVOLUTION 200 // defualtowa wartosc bez mikrokrokow
 #define MOTOR_ANGLE_MIN 0
 #define MOTOR_ANGLE_MAX 360
-#define target_speed 1500.0f
-#define accel 1500.0f   
-#define ft 1000000.0f          // czestotliwosc przerwan
+#define IDLE_CLOCK_ISR_SPEED 500
+#define ft 1000000.0f // czestotliwosc przerwan
 
 // bo mama jakas stara werjse xD
 #define TIMER_GROUP_0 (timer_group_t)0
 #define TIMER_NUM_0 (timer_idx_t)0
 
 // pozniej wydziele klase tmc moze
-class STEPPER_MOTOR
+class STEPPER_MOTOR : public Iaxis
 {
 
     TMC tmc_2209;
-    MotorState state_motor{MotorState::WAIT_FOR_HOME};
     QueueHandle_t cmndQueue;
-    volatile ramp_state_t ramp{STOP};
+    // volatile ramp_state_t ramp{STOP};
     portMUX_TYPE timer_mux = portMUX_INITIALIZER_UNLOCKED;
     const char *TAG = "MOTOR";
     volatile std::int32_t total_steps{0};
@@ -58,13 +43,10 @@ class STEPPER_MOTOR
     volatile bool dir_forward{true};
     volatile bool is_motor_stopped{true};
     volatile bool step_state;
-    volatile std::int32_t step_delay{0};
-    volatile std::int32_t min_delay{0};
-    volatile std::int32_t accel_count{0};
-    volatile std::int32_t decel_val{0};
-    volatile std::int32_t step_count{0};
-    volatile std::int32_t decel_start{0};
-    volatile std::int32_t rest{0};
+    volatile int32_t last_step_count_pd{};
+    int64_t last_pd_time_us{};
+    
+
 
     uint16_t microsteps{16};
 
@@ -85,10 +67,10 @@ class STEPPER_MOTOR
     // }
 
 public:
-    bool is_stopped();
+    bool is_stopped() override;
     void set_current_pos_as_zero();
 
-    void set_current_pos_as_azimuth(float azimuth_deg);
+    void set_current_pos_as_azimuth(float azimuth_deg) override;
 
     void motor_init(std::uint16_t microsteps, std::uint16_t hold_current, std::uint16_t irun_current, std::uint8_t stallguar_act_point = 100);
 
@@ -102,16 +84,11 @@ public:
 
     float get_normalized_angle();
 
-    MotorState get_state()
-    {
-        return state_motor;
-    }
-
     void motor_thread();
 
-    void move_by_delta(float delta);
+    void move_by_delta(float delta) override;
 
-    void move_to_angle(float angle_target);
+    void move_to_angle(float angle) override;
 
     void stop_motor();
 

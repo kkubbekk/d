@@ -12,9 +12,6 @@ YOLO_UUID = "4A02"
 HOMEGPS_UUID = "4A03"
 
 
-KP_X = 0.25
-KP_Y = 0.25
-
 
 async def scan_for_device():
     devices = await BleakScanner.discover(timeout=5.0)
@@ -26,7 +23,7 @@ async def scan_for_device():
 
 
 def detect_person(frame, height, width):
-    results = model(frame, verbose=False)
+    results = model.predict(frame, imgsz=320, classes=[0], conf=0.45, verbose=False)
     found_person = False
     angle_x = 0.0
     angle_y = 0.0
@@ -45,7 +42,7 @@ def detect_person(frame, height, width):
                 x1, y1, x2, y2 = map(int, box.xyxy[0])
 
                 center_x = (x1 + x2) / 2.0
-                center_y = (y1 + y2) / 2.0
+                center_y = y1 + 0.3 * (y2 - y1)
 
 
                 angle_x = ((center_x - (width / 2.0)) / width) * 75.0
@@ -95,7 +92,7 @@ async def main():
         print("Polaczono z ESP32! Wysylam kalibracje")
         calib_pkt = struct.pack('<fff?', 50.0600, 19.9400, 45.0, True)
         await client.write_gatt_char(HOMEGPS_UUID, calib_pkt)
-        await asyncio.sleep(0.1)
+     
 
         try:
             while True:
@@ -107,7 +104,7 @@ async def main():
 
                 if found_person:
                     flags = 0x00 
-                    pkt = struct.pack('<ffB', angle_x * KP_X, angle_y * KP_Y, flags)
+                    pkt = struct.pack('<ffB', angle_x, angle_y, flags)
                 else:
                     flags = 0x80  
                     pkt = struct.pack('<ffB', 0.0, 0.0, flags)
@@ -118,7 +115,6 @@ async def main():
                 if (cv2.waitKey(1) & 0xFF) == ord('q'):
                     break
 
-                await asyncio.sleep(0.01)
         finally:
             cap.release()
             cv2.destroyAllWindows()
